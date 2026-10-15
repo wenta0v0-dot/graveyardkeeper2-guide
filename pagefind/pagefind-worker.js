@@ -705,7 +705,7 @@ let wasm_bindgen = (function(exports) {
       this.backend = wasm_bindgen;
       this.decoder = new TextDecoder("utf-8");
       this.wasm = null;
-      let basePath = opts.basePath || "/breakegg-guide/pagefind/";
+      let basePath = opts.basePath || "/graveyardkeeper2-guide/pagefind/";
       let primary = opts.primary || false;
       if (primary && !opts.basePath && isBrowser()) {
         basePath = this.initPrimaryBasePath(basePath);

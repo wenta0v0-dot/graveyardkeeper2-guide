@@ -1,11 +1,11 @@
 {
   "name": "Graveyard Keeper 2 Wiki",
   "short_name": "GK2 Guide",
-  "description": "The troubleshooter’s guide to Graveyard Keeper 2: the cheats and console-commands truth, beginner guides, and troubleshooting for every progression blocker — verified and dated.",
+  "description": "An unofficial player-made wiki for Graveyard Keeper 2: the console-commands and cheats truth, beginner guides, and troubleshooting for every progression blocker. Verified and dated after every game update.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#8E3B2F",
+  "theme_color": "#8e3c2f",
   "icons": [
     {
       "src": "android-chrome-192x192.png",

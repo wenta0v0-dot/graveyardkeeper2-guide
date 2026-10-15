@@ -1312,7 +1312,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
   function Sc(l, e, t) {
     let s = {}, a = Us.map((b) => b.match(/([^\/]+)\.json$/)[1]);
     for (let b = 0; b < a.length; b++) s[a[b]] = { language: a[b], ...hs[b].strings };
-    let { base_path: i = "/breakegg-guide/pagefind/" } = e, { page_size: r = 5 } = e, { reset_styles: n = true } = e, { show_images: c = true } = e, { show_sub_results: C = false } = e, { excerpt_length: u } = e, { process_result: A = null } = e, { process_term: o = null } = e, { show_empty_filters: d = true } = e, { open_filters: g = [] } = e, { debounce_timeout_ms: I = 300 } = e, { pagefind_options: Q = {} } = e, { merge_index: f = [] } = e, { trigger_search_term: p = "" } = e, { translations: h = {} } = e, { autofocus: y = false } = e, { focus_on_slash: q = false } = e, { sort: z = null } = e, { selected_filters: N = {} } = e, R = "", G, J, ct, Ls = 40, mt = false, Xl = [], ft = false, Ft = false, Zl = 0, Nl = "", pt = r, El = null, Ie = null, Gl = s.en, Ws = (b, E, L) => {
+    let { base_path: i = "/graveyardkeeper2-guide/pagefind/" } = e, { page_size: r = 5 } = e, { reset_styles: n = true } = e, { show_images: c = true } = e, { show_sub_results: C = false } = e, { excerpt_length: u } = e, { process_result: A = null } = e, { process_term: o = null } = e, { show_empty_filters: d = true } = e, { open_filters: g = [] } = e, { debounce_timeout_ms: I = 300 } = e, { pagefind_options: Q = {} } = e, { merge_index: f = [] } = e, { trigger_search_term: p = "" } = e, { translations: h = {} } = e, { autofocus: y = false } = e, { focus_on_slash: q = false } = e, { sort: z = null } = e, { selected_filters: N = {} } = e, R = "", G, J, ct, Ls = 40, mt = false, Xl = [], ft = false, Ft = false, Zl = 0, Nl = "", pt = r, El = null, Ie = null, Gl = s.en, Ws = (b, E, L) => {
       var _a2, _b;
       return (_b = (_a2 = L[b]) != null ? _a2 : E[b]) != null ? _b : "";
     }, kl = (b) => {
@@ -1414,7 +1414,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
   try {
     (document == null ? void 0 : document.currentScript) && document.currentScript.tagName.toUpperCase() === "SCRIPT" && (yl = new URL(document.currentScript.src).pathname.match(/^(.*\/)(?:pagefind-)?ui.js.*$/)[1]);
   } catch (e) {
-    yl = "/breakegg-guide/pagefind/";
+    yl = "/graveyardkeeper2-guide/pagefind/";
   }
   var Qt = class {
     constructor(e) {

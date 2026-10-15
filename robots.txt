@@ -9,4 +9,4 @@ Disallow: /requirements/
 Disallow: /.github/
 Disallow: /.agent/
 
-Sitemap: https://wenta0v0-dot.github.io/breakegg-guide/sitemap-index.xml
+Sitemap: https://wenta0v0-dot.github.io/graveyardkeeper2-guide/sitemap-index.xml

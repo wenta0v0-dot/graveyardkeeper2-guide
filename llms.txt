@@ -1,10 +1,11 @@
-# Break and Steal an Egg Wiki
+# Graveyard Keeper 2 Wiki
 
-> Honest guide to Break and Steal an Egg: how free rewards really work (no text codes), beginner tips, and pet coverage re-verified after every update.
+> An unofficial player-made wiki for Graveyard Keeper 2: the console-commands and cheats truth, beginner guides, and troubleshooting for every progression blocker. Verified and dated after every game update.
 
-Wiki for Break and Steal an Egg (Roblox, by ILGames x Eggs). Articles cover boss guides, tier lists, codes, items, and beginner tips.
+Wiki for Graveyard Keeper 2 (PC (Steam), by Lazy Bear Games). Articles cover boss guides, tier lists, codes, items, and beginner tips.
 
 ## Articles
 
-- [Break and Steal an Egg Codes (October 2026) — The Truth + Real Free Rewards](https://wenta0v0-dot.github.io/breakegg-guide/codes/all-codes/): Break and Steal an Egg has no text codes as of October 12, 2026 — the game has no code box to type into. The real free rewards are the Discord-link Saber-tooth Egg and the like-and-join-group bonus. This page proves both claims, walks through each step, and is re-verified after every game update.
-- [Break and Steal an Egg Beginner Guide — Core Loop, Zones & Upgrades](https://wenta0v0-dot.github.io/breakegg-guide/guides/beginner-guide/): Break and Steal an Egg is a heist wrapped in a pet collector: break eggs to hatch rare animals, steal other players' animals, escape the guards, and park loot in your base to earn cash. This guide walks through the full loop, the known zones, which upgrades to buy first, and the mistakes that cost new players their animals.
+- [Graveyard Keeper 2 Cheats & Console Commands (October 2026) — The Truth](https://wenta0v0-dot.github.io/graveyardkeeper2-guide/codes/all-codes/): No working text codes or built-in console commands have been documented for Graveyard Keeper 2 as of version 1.008 (October 2026). The real speed-ups are the automation economy: zombie workers, factory lines, and church income. This page proves the claim, explains what to do instead, and is re-checked after every game update.
+- [Graveyard Keeper 2 Beginner Guide — Your First Days in the Yard](https://wenta0v0-dot.github.io/graveyardkeeper2-guide/guides/beginner-guide/): Graveyard Keeper 2 runs on three engines: the graveyard-and-church pair that converts corpses into faith and money, the tech tree that unlocks the town and the Royal Foundry, and the automation economy of zombie workers and factory lines. This guide explains each engine, the order to build them in, and the mistakes that stall new keepers.
+- [Graveyard Keeper 2 Troubleshooting — Steel, the Foundry & Blockers](https://wenta0v0-dot.github.io/graveyardkeeper2-guide/guides/troubleshooting/): The Graveyard Keeper 2 progression blockers players hit most: steel and the Royal Foundry tech line, Polished Bronze and Bronze Detail, orders with Jack and the warehouse, faith income, and zombie mining. Each blocker below explains where the answer lives in-game and what typically unsticks it — checked against version 1.008.
