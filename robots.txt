@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /src/
+Disallow: /scripts/
+Disallow: /docs/
+Disallow: /tools/
+Disallow: /tests/
+Disallow: /requirements/
+Disallow: /.github/
+Disallow: /.agent/
+
+Sitemap: https://wenta0v0-dot.github.io/breakegg-guide/sitemap-index.xml
