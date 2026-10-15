@@ -1,7 +1,16 @@
 # Graveyard Keeper 2 指导站 — 项目简报(HANDOFF)
 
-> 状态:**已过双源验证 + 竞争检查,待拍板**(按 2 天规则,拍板截止 10-13)。
-> 本文件与 breakstealegg-site/HANDOFF.md 同构;拍板后照此直接开工。
+> 状态:**已拍板(2026-10-16)并上线**。本文件与 breakstealegg-site/HANDOFF.md 同构。
+
+## 0. 已上线(2026-10-16)
+
+- **线上地址**:https://wenta0v0-dot.github.io/graveyardkeeper2-guide/
+- **GitHub 仓库**:https://github.com/wenta0v0-dot/graveyardkeeper2-guide(公开仓,GitHub Pages「deploy from branch」,主分支根目录)
+- **技术栈**:AnvilWiki 模板(Astro 7 + MDX + Pagefind + Tailwind),与 breakstealegg-site 同管线;`pnpm apply-template --answers gk2-answers.json` 完成的基础适配
+- **更新发布流程**:`node scripts/ship.mjs`(构建 + 把 dist/ 镜像到仓库根)→ `git add -A && git commit && git push` → 约 1 分钟生效
+  - ⚠️ 注意必须跑完整 ship(不带 `--build-only`):`--build-only` 只产 dist/ 不镜像,仓库根会残留旧构建
+- **v1 内容**:codes/all-codes(作弊与控制台命令真相,核验至 1.008)、guides/beginner-guide(三引擎新手指南)、guides/troubleshooting(Steel/Foundry/Polished Bronze/订单仓库等卡点索引,部分条目标注「in-game verification in progress」)
+- **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论
 

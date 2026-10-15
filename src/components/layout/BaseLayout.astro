@@ -77,7 +77,7 @@ const {
   description,
   locale,
   alternates = [],
-  image = `${siteUrl}/images/hero.webp`,
+  image = `${siteUrl}/images/hero-gk2.jpg`,
   jsonLd = [],
   article = false,
   noindex = false,
@@ -196,7 +196,7 @@ const privacyLabel = consent?.privacyLabel ?? footerStrings.privacyPolicy ?? 'Pr
       // Only declare dimensions we actually know: the default hero has fixed
       // site dims; per-article covers pass their real size; unknown = omit
       // (wrong dims make scrapers mis-crop the share card).
-      (ogImageWidth && ogImageHeight) || image === `${siteUrl}/images/hero.webp` ? (
+      (ogImageWidth && ogImageHeight) || image === `${siteUrl}/images/hero-gk2.jpg` ? (
         <>
           <meta
             property="og:image:width"

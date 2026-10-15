@@ -84,8 +84,8 @@ export const site: SiteConfig = {
   defaultAuthor: 'GK2 Guide',
   // og:image dims of the SHIPPED hero.webp — if you replace public/images/hero.webp,
   // update these in src/config/site.ts to match (wrong dims mis-crop share cards).
-  ogImageWidth: 1200,
-  ogImageHeight: 630,
+  ogImageWidth: 1920,
+  ogImageHeight: 1080,
 };
 
 /** Absolute site URL (no trailing slash). Falls back to the Astro `site` config. */
