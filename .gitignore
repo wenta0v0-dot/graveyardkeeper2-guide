@@ -52,3 +52,6 @@ reports/
 ops/
 
 .preview-root/
+
+# pnpm local store (never commit)
+.pnpm-store/

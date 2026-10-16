@@ -1,0 +1,94 @@
+---
+title: 'Graveyard Keeper 2 Factory Automation Guide — Conveyors and Iron'
+description: 'Unlock the underground factory, wire your first conveyor line, keep the Zombie Carousel powered, and run the four-step iron supply chain to the town warehouse.'
+category: 'guides'
+image: '../../../../assets/covers/en-guides-factory-automation-guide.png'
+date: 2026-10-17
+lastModified: 2026-10-17
+gameVersion: '1.009'
+tags: ['automation', 'factory', 'tech tree', 'guide']
+summary: 'The underground factory turns the manual grind into a conveyor-fed supply chain. This guide walks the full unlock path, your first Zombie Carousel, the iron run to the town warehouse, and a checklist for the moment the line stops — because at some point, it will stop.'
+faq:
+  - question: 'How do you unlock the underground factory?'
+    answer: 'Progress "First Sludge" to open the liberated town, finish the forest quest line and clear the mine, then advance Jack''s story. The factory techs (Conveyors, Assembly Bench, Crates, Zombie Delivery) sit behind Smithy Hammer.'
+  - question: 'Why did my conveyor line stop?'
+    answer: 'Work the checklist: belt arrow directions, factory power, zombie tools, supplies at supply stations, storage capacity, and whether the production queue is actually loaded. More often than not, it is storage.'
+  - question: 'How much factory power does a Zombie Carousel need?'
+    answer: 'Community figures put a two-zombie carousel at around 10 factory power. We are re-confirming the exact number in game before stating it as a hard value.'
+  - question: 'What should the factory make first?'
+    answer: 'Crates for the iron supply chain: mine ore, smelt it in the Smithy, assemble crates, and deliver them to the town warehouse to feed the repeatable orders.'
+---
+
+import Callout from '~/components/mdx/Callout.astro';
+
+The underground factory is where Graveyard Keeper 2 stops being a graveyard sim and starts being a logistics game. It is also where most runs stall, because the unlock chain is the longest in the game and nothing on the conveyor explains itself. This guide walks the full path. Checked against community documentation current to **version 1.009** (October 17, 2026); unconfirmed numbers are flagged in the verification log.
+
+<Callout type="info" title="The short version">
+  The unlock order is: **First Sludge** → the liberated town → the forest quest line → the mine → Jack's story. Stockpile materials in bulk before clearing the four blockades. Your first line: a **Zombie Carousel** with two zombies, a **Porter Station** and a **Supply Pallet**, feeding crates down the iron chain to the town warehouse.
+</Callout>
+
+## How do you unlock the underground factory?
+
+The chain, in order:
+
+1. **First Sludge** — the quest that opens the liberated town.
+2. **The forest quest line** — *Into the Forest*, *Forest Pass*, *Go Wild in the Wildlands*, and *Can't See the Forest for the Iron*, which unlocks the mine.
+3. **Mine rubble** — cleared with **Builder Kits** and a **Reinforced Beam**.
+4. **Jack's story** — the factory sits behind his workshop progress.
+
+Then the techs: **Smithy Hammer**, **Conveyors**, **Assembly Bench**, **Crates**, **Zombie Delivery**, **Zombie Mining**.
+
+Inside the factory area there are **four blockades** to clear. Stockpile the materials in bulk before you start — running out halfway through a blockade is the documented way to lose an evening.
+
+## Your first production line
+
+- Build a **Porter Station** and a **Supply Pallet**.
+- Revive the **Zombie Carousel** — community figures put it at two zombies and around **10 factory power** (being re-confirmed in game).
+- The documented starter conveyor shape is **seven belts: up, right, up again**. The most common setup mistake is a single arrow pointing the wrong way — belts only move in the direction of their arrow, so check every one before you blame the power supply.
+
+## The iron supply chain
+
+The factory's first real job is the four-step iron run:
+
+1. **Mine** — zombie miners pull ore (see the [zombie workers guide](/guides/zombie-workers-guide/) for the station setup).
+2. **Smelt** — the Smithy turns ore into usable metal.
+3. **Assemble** — the Assembly Bench builds crates.
+4. **Deliver** — Zombie Delivery moves finished crates to the town warehouse.
+
+Repeatable town orders land on **purple days** of the six-day calendar. They pay **Town Gratitude** and sometimes coin directly — and gratitude compounds, because it opens more of the town.
+
+## Scaling up
+
+More carousels, more pallets, more zombies — the layout scales by repetition, not redesign. Two habits matter more than layout:
+
+- **Queue large batches.** Small queues leave zombies idle between jobs; large ones keep the line warm while you sleep.
+- **Watch storage capacity.** The line stops when output has nowhere to go, and it looks exactly like a broken conveyor.
+
+## Why did my line stop?
+
+The checklist, in order of how often each one is the culprit:
+
+1. **Storage full** — free space before you touch anything else.
+2. **Belt arrows** — one reversed belt breaks the whole run.
+3. **Factory power** — the Carousel draws power; a stalled generator stalls everything downstream.
+4. **Supplies** — supply stations empty, or the supply pallet out of inputs.
+5. **Tools** — a zombie missing its pickaxe or hammer stands still, exactly like a frozen line.
+6. **Queue empty** — the machines are fine; nobody told them what to make.
+
+If the stall is upstream at the mine itself, the zombie-side fixes live in the [zombie workers guide](/guides/zombie-workers-guide/).
+
+## Verification log
+
+| Date | Version | Source | Confidence |
+|---|---|---|---|
+| October 17, 2026 | 1.009 | Community automation documentation (unlock chain, quest names, tech names, conveyor shape) | Chain structure confirmed by multiple independent sources |
+| October 17, 2026 | 1.009 | In-game confirmation | **Pending** |
+
+**Needs in-game confirmation before we harden the numbers**: the Carousel's exact power draw, the material lists for each blockade, and the payout amounts on purple-day orders.
+
+## What to read next
+
+- **[Zombie workers guide](/guides/zombie-workers-guide/)** — the miners and porters that feed this line.
+- **[Money guide](/guides/money-guide/)** — what the output should be sold as, and which streams scale.
+- **[Troubleshooting](/guides/troubleshooting/)** — steel and the Royal Foundry, the tech wall this whole chain leans on.
+- **[Beginner guide](/guides/beginner-guide/)** — the three engines this factory belongs to.

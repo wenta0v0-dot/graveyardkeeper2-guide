@@ -10,6 +10,7 @@
 - **更新发布流程**:`node scripts/ship.mjs`(构建 + 把 dist/ 镜像到仓库根)→ `git add -A && git commit && git push` → 约 1 分钟生效
   - ⚠️ 注意必须跑完整 ship(不带 `--build-only`):`--build-only` 只产 dist/ 不镜像,仓库根会残留旧构建
 - **v1 内容**:codes/all-codes(作弊与控制台命令真相,核验至 1.008)、guides/beginner-guide(三引擎新手指南)、guides/troubleshooting(Steel/Foundry/Polished Bronze/订单仓库等卡点索引,部分条目标注「in-game verification in progress」)
+- **v1.1 内容(2026-10-17)**:同行事实提取批——guides/ 下新增 zombie-workers-guide、factory-automation-guide、money-guide、faith-guide 四篇(从竞品站提取游戏机制事实+全原创重写,每篇带 Verification log,未在游戏内核实的数字一律标 Pending);gen-covers 生成 7 张封面(含老三篇补齐);老三篇「延伸阅读」互链接通;顺修 check-links 的 %20 tag 自链误报(上次发版已存在的 bug,非内容批引入)
 - **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论

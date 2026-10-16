@@ -88,7 +88,17 @@ for (const file of htmlFiles) {
         ? clean.slice(basePath.length) || '/'
         : clean;
     if (lookup === '' || lookup === '/') continue;
-    if (!knownPaths.has(lookup.replace(/\/$/, ''))) {
+    // hrefs are URL-shaped; knownPaths hold the decoded dist form ("%20" vs
+    // " " — e.g. a tag slug "version 1.008"). Same guarded decode as
+    // decodeSitemapPath in astro.config.ts: a literal "%" in a slug would
+    // make decodeURIComponent throw, so fall back to the raw form.
+    let lookupDecoded = lookup;
+    try {
+      lookupDecoded = decodeURIComponent(lookup);
+    } catch {
+      /* literal '%' in the slug — keep the raw form */
+    }
+    if (!knownPaths.has(lookupDecoded.replace(/\/$/, ''))) {
       const list = broken.get(href) ?? [];
       if (list.length < 3) list.push(pagePath);
       broken.set(href, list);

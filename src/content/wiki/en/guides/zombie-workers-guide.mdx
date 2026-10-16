@@ -1,0 +1,103 @@
+---
+title: 'Graveyard Keeper 2 Zombie Workers Guide — Tasks, Setups and Fixes'
+description: 'How to unlock zombie workers, staff every station type, and fix idle or frozen zombies — quest names, techs and setups checked against current community data.'
+category: 'guides'
+image: '../../../../assets/covers/en-guides-zombie-workers-guide.png'
+date: 2026-10-17
+lastModified: 2026-10-17
+gameVersion: '1.009'
+tags: ['zombies', 'automation', 'tech tree', 'guide']
+summary: 'Zombie workers are the real speed-up: unlock them via the Plague Doctor''s Sweet Dreams quest, prepare a corpse with five red skulls, then staff lumber, quarry and farm stations so the dead do the work your energy used to. This guide covers every setup, the tool requirements, and the fixes for idle zombies.'
+faq:
+  - question: 'How do you unlock zombies in Graveyard Keeper 2?'
+    answer: 'Start the Plague Doctor''s "Sweet Dreams" quest, and improve a corpse through the Nun''s "Bronze and Brains" questline — a body with five red skulls is enough to work with. Reviving it takes Reanimation Liquid and a Zombie Collar.'
+  - question: 'Why is my zombie just standing there?'
+    answer: 'Almost always one of three things: the job needs a tool the zombie does not have, a crop tablet is missing on the farm rows, or storage is full. Unassigning and reassigning a frozen miner unsticks it.'
+  - question: 'How many zombies can you have?'
+    answer: 'Community documentation describes reviving up to four zombies on green days using Reanimation Liquid and Zombie Collars, with the workforce growing from there. The exact ceiling is one of the numbers still being confirmed in game.'
+  - question: 'Do zombies need tools?'
+    answer: 'Yes for some jobs: a Bronze Axe for lumber, pickaxes for mining, a Bronze Shovel for farming. Porter and supplier zombies need no tools at all.'
+---
+
+import Callout from '~/components/mdx/Callout.astro';
+
+Every Graveyard Keeper 2 codes page tells you the same truth this site already documented: there is no cheat box. The legitimate speed-up is the one the game builds for you — a workforce that does not sleep, eat, or draw on your energy bar. This guide covers unlocking it, staffing every station type, and un-sticking it when it stalls. Quest names, tech names and setups are checked against community documentation current to **version 1.009** (October 17, 2026); every number we could not confirm in game is flagged in the verification log.
+
+<Callout type="info" title="The short version">
+  The Plague Doctor's **Sweet Dreams** quest unlocks reanimation. Prepare a corpse through the Nun's **Bronze and Brains** line — five red skulls is enough. Staff stations in this order: **coal and iron** (the simplest line), **wood**, **farming**, then **stone and marble**. Every zombie you put on a station is energy you get to keep.
+</Callout>
+
+## How do you unlock zombie workers?
+
+Two quest lines and one recipe stand between you and your first worker:
+
+- **Sweet Dreams** (Plague Doctor) — opens reanimation.
+- **Bronze and Brains** (the Nun) — the corpse-improvement questline. A body with **five red skulls** is enough to work with; better bodies matter later (see the end of this guide).
+- **Reanimation Liquid + a Zombie Collar** turns the prepared body into a worker. Community documentation describes up to **four revivals on green days**; the exact cadence is one of the numbers we are still confirming in game.
+
+One cost is easy to miss: making zombies spends **faith** — which is why the [faith guide](/guides/faith-guide/) belongs on your reading list before the third collar.
+
+## What can a zombie actually do?
+
+The documented task list: chop trees, mine stone, coal and iron, farm crops, carry resources, operate machines, and run town delivery orders. What a zombie cannot do is think. Each station needs its tools, inputs and output space set up correctly — which is where every "my zombie is broken" report actually lives.
+
+## Automating wood
+
+Requirements first:
+
+- Jack's **Workshop Hours** quest (not "Back in Business" — a common mix-up that wastes an evening).
+- **Bronze Tools** tech for the Bronze Axe.
+- Techs: **Zombie Lumberjack**, **Lumberjack Stand**, **Timber Stockpile**, **Porter Station** — all on the Buildings tab past the circular saw.
+
+The flow: a lumberjack zombie fells trees into the timber stockpile, and a porter zombie moves logs through the mine machinery back to your yard. Build the stand and stockpile near the sawmill, and the porter station within reach of the stockpile.
+
+## Automating stone and marble
+
+Stone wants three zombies doing three jobs: a miner at the quarry, a supplier feeding it, and a porter hauling the output.
+
+- Techs: **Stone Carving** (which brings **Zombie Stone Mining**, the quarry and the porter system), plus **Zombie Marble Mining** for marble.
+- Build the **Zombie Supplier Station**, the **Stone Quarry** (a one-time build), a **Porter Station** and a chest.
+
+The flow: quarry → miner → supplier → chest → porter → mine transport → yard storage.
+
+## Automating coal and iron (start here)
+
+The simplest zombie line in the game: miners with pickaxes and a porter station. No supplier station, no chest, no choreography — the mine already sits next to the transport machinery. If you build only one line first, make it this one, because [the factory eats iron](/guides/factory-automation-guide/).
+
+## Automating farming
+
+- Techs: **Garden Upgrade**, **Zombie Farming**, **Gardener's Stand**, plus a **Bronze Shovel**.
+- Place **crop tablets** on the rows you want farmed — without a tablet the zombie idles, and this is the single most common "broken zombie" report.
+- Add a chest near the station so the zombie does not stop when its inventory fills.
+
+Wheat, carrots and beets sell to village traders — the same crops that feed your early coin (see the [money guide](/guides/money-guide/)).
+
+## Why is my zombie standing still?
+
+Work down the list; it is almost always one of these:
+
+1. **Missing tool.** Lumber needs a Bronze Axe, mining needs pickaxes, farming needs a Bronze Shovel. Porters and suppliers need nothing.
+2. **No crop tablet.** A gardener with no tablet on its rows has nothing to do.
+3. **Frozen worker.** Unassign and reassign the zombie — the documented fix for the miner freeze.
+4. **Full storage.** Workers stop when output has nowhere to go. Free the chest before assuming the station is broken.
+5. **Stopped conveyor.** If the line downstream is the problem, work the factory checklist in the [factory automation guide](/guides/factory-automation-guide/).
+
+## How far should you take it?
+
+Corpse quality is throughput: red skulls are what let a zombie run a station continuously without your stamina paying the difference. The community consensus is that a maxed workforce is the point where faith stops being the bottleneck — every collar you buy is buying back your own day.
+
+## Verification log
+
+| Date | Version | Source | Confidence |
+|---|---|---|---|
+| October 17, 2026 | 1.009 | Community automation documentation (quest names, tech names, station flows) | Chain structure confirmed by multiple independent sources |
+| October 17, 2026 | 1.009 | In-game confirmation | **Pending** |
+
+**Needs in-game confirmation before we harden the numbers**: the exact revival limit per green day, whether red-skull counts above five change station behavior beyond speed, and any tool durability costs.
+
+## What to read next
+
+- **[Factory automation guide](/guides/factory-automation-guide/)** — the underground line that turns ore into town orders.
+- **[Money guide](/guides/money-guide/)** — what all this passive output should be sold as.
+- **[Beginner guide](/guides/beginner-guide/)** — if the foundations are shaky, start there.
+- **[Troubleshooting](/guides/troubleshooting/)** — the progression walls this guide assumes are behind you.
