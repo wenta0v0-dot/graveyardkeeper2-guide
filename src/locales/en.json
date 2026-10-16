@@ -15,7 +15,11 @@
     "search": "Search",
     "language": "Language",
     "codes": "Console & Cheats",
-    "guides": "Guides"
+    "guides": "Guides",
+    "items": "Items & Runes",
+    "quests": "Main Story",
+    "achievements": "Achievements",
+    "updates": "Patch Notes"
   },
   "search": {
     "placeholder": "Search the wiki...",
@@ -133,6 +137,22 @@
     "guides": {
       "overviewTitle": "Graveyard Keeper 2 Guides",
       "overviewDescription": "Beginner guides and troubleshooting for every progression blocker — the tech tree, the church, zombies and the factory — every claim verified and dated."
+    },
+    "items": {
+      "overviewTitle": "Graveyard Keeper 2 Items & Runes",
+      "overviewDescription": "Reference data for the systems that eat evenings: alchemy runes, formulas and ingredients — every row transcribed from verified sources and stamped with a date."
+    },
+    "quests": {
+      "overviewTitle": "Graveyard Keeper 2 Main Story",
+      "overviewDescription": "The main quest line in order — the prison escape, Larry, all seven acts, every reputation gate and weekday lock — spoiler-flagged where the story actually starts."
+    },
+    "achievements": {
+      "overviewTitle": "Graveyard Keeper 2 Achievements",
+      "overviewDescription": "All 38 achievements in one dated table — public unlock conditions quoted from the game, hidden ones marked honestly instead of guessed."
+    },
+    "updates": {
+      "overviewTitle": "Graveyard Keeper 2 Patch Notes",
+      "overviewDescription": "Every update since launch in one dated log — balance changes, progression fixes and the official roadmap, so you always know which version you are playing."
     }
   },
   "home": {

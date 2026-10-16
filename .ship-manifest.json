@@ -5,6 +5,7 @@
     "736ac2a361ff22cc9db489376a5187fcf25b033e621415ca5d1f29b490f9f1a5.txt",
     "_astro",
     "about",
+    "achievements",
     "ads.txt",
     "android-chrome-192x192.png",
     "android-chrome-512x512.png",
@@ -21,16 +22,19 @@
     "guides",
     "images",
     "index.html",
+    "items",
     "llms.txt",
     "manifest.json",
     "pagefind",
     "privacy-policy",
+    "quests",
     "recent",
     "robots.txt",
     "rss.xml",
     "sitemap-0.xml",
     "sitemap-index.xml",
     "tags",
-    "terms-of-service"
+    "terms-of-service",
+    "updates"
   ]
 }
