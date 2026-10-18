@@ -12,6 +12,7 @@
 - **v1 内容**:codes/all-codes(作弊与控制台命令真相,核验至 1.008)、guides/beginner-guide(三引擎新手指南)、guides/troubleshooting(Steel/Foundry/Polished Bronze/订单仓库等卡点索引,部分条目标注「in-game verification in progress」)
 - **v1.1 内容(2026-10-17)**:同行事实提取批——guides/ 下新增 zombie-workers-guide、factory-automation-guide、money-guide、faith-guide 四篇(从竞品站提取游戏机制事实+全原创重写,每篇带 Verification log,未在游戏内核实的数字一律标 Pending);gen-covers 生成 7 张封面(含老三篇补齐);老三篇「延伸阅读」互链接通;顺修 check-links 的 %20 tag 自链误报(上次发版已存在的 bug,非内容批引入)
 - **v1.2 内容(2026-10-17)**:参考数据批——新增 items/quests/achievements/updates 四个分类(navigation.ts + en.json nav/overview 同步,导航 2→6);四篇数据页:items/alchemy-runes-cheat-sheet(29 配方 RGB 全表+30 材料符文值+实验台规则,约 32 行材料与第 29 配方标 Pending 转录,不编数)、quests/main-quest-walkthrough(序章越狱/Larry/下水道+7 幕 41 任务+声望阶梯+星期锁表,前置剧透警告,Act 6 Red Eye 卡结局警告)、achievements/all-achievements(38 成就全表:33 条公开条件逐条+5 隐藏成就明确标「游戏数据无条件文本」,GK2DB 报告标 unofficial,1.006 demo 存档成就回溯)、updates/patch-notes(9/22 热修→1.008 逐版纪要+1.009 主机推送+官方路线图,承诺每补丁后复检);数据源:Wikily.gg/Keepers Ledger/GameBrief/graveyardkeeper2.cc,事实提取+全重写
+- **成就页更正(2026-10-17)**:PSNProfiles 奖杯全文(10/9 发布)比对发现首版从 GameBrief 转引的条件多处不符(Words of Faith 实为首次布道、Warmaker 实为打造 50 件战争装备、Merchants' Best Friend 实为 25 笔商人订单、Alcohol Baron 是 100 瓶非 50、Supplier 是「制造」非「运送」等),且该来源有 7 个名字不在游戏数据名单(真实名单来自 graveyardkeeper2.cc 直读构建数据);全部 38 行改用平台奖杯文本+游戏数据名单重写,5 个 Steam 隐藏成就改用 PS 公开条件(替换 GK2DB 传闻——其中 An Unlikely Pair=Agatha+Herbert、Two Broken Souls=Jack+Gunter,传闻原指向 Davy/Red Eye 为错),验证日志加更正条目;补丁页每日自动化(10:00)已建,首日核验 1.010 为最新无动作
 - **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论
