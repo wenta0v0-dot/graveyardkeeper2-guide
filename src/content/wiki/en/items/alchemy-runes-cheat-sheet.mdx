@@ -4,10 +4,10 @@ description: 'Every Graveyard Keeper 2 alchemy formula with its exact red/green/
 category: 'items'
 image: '../../../../assets/covers/en-items-alchemy-runes-cheat-sheet.png'
 date: 2026-10-17
-lastModified: 2026-10-17
-gameVersion: '1.009'
+lastModified: 2026-10-24
+gameVersion: '1.010'
 tags: ['alchemy', 'runes', 'guide']
-summary: 'Alchemy in Graveyard Keeper 2 is arithmetic, not recipes: every ingredient carries red, green and blue rune values, and a brew works only when the totals match a formula exactly. This cheat sheet lists all 29 formulas with their rune totals, the ingredient values verified so far, and the lab rules the game never explains.'
+summary: 'Alchemy in Graveyard Keeper 2 is arithmetic, not recipes: every ingredient carries red, green and blue rune values, and a brew works only when the totals match a formula exactly. This cheat sheet carries all 28 formula entries, all 63 ingredients with where to get each one, and the lab rules the game never explains — cross-checked against two independent datasets.'
 faq:
   - question: 'How does alchemy work in Graveyard Keeper 2?'
     answer: 'Every ingredient carries red, green and blue rune values. The lab adds them up colour by colour, and a mix produces a result only when the totals match a formula exactly — one rune too many or too few makes nothing.'
@@ -75,56 +75,90 @@ This is the table to keep open while brewing. "Lab II" marks the six formulas wi
 | Umami | 4 green, 4 blue | Lab II |
 | Philosopher Stone | 3 red, 3 green, 3 blue | Lab II |
 
-Community data documents **29 formulas total**; the table above carries 28 — the last row is being transcribed and verified before it goes up. 25 of 29 are technology-unlockable; the four tier-3 battle potions are only discovered by brewing them.
+Community data bears out **28 formula entries** — the table above is complete. The "29 formulas" figure that circulates in summaries counts **Organ Improver twice**: its red-skull and white-skull variants are separate brews held in one data entry, and 28 + 1 = 29. 25 of the 28 are technology-unlockable; the four tier-3 battle potions are only discovered by brewing them.
 
 ## Ingredient rune values
 
-Values are transcribed from community-documented game data. "F#" = number of formulas the ingredient can serve.
+Every rune-carrying ingredient, with what it takes to get it. **F#** = how many formulas the ingredient can serve, so the top of the table is what to stockpile. Values were cross-checked between two independent datasets on **October 24, 2026** with **zero disagreements**.
 
-| Ingredient | R | G | B | F# |
+**How the counts reconcile**: the game data carries **63 ingredient entries**; the widely quoted "66" counts the Heart, Brain and Guts quality variants separately (63 + 3 = 66). **Cacao** carries runes but is never accepted by the lab — it appears in no formula, so do not stockpile it.
+
+### The 44 raw ingredients and body parts
+
+| Ingredient | R | G | B | F# | Where to get it |
+|---|---|---|---|---|---|
+| Clay | 1 | 0 | 0 | 21 | Clay Spot (shovel, Building 2); Clay Digger Stand |
+| Flesh | 1 | 0 | 0 | 21 | Buy: Baker (tier 2). Corpses during an autopsy |
+| Sand | 1 | 0 | 0 | 21 | Sand Pit (shovel, Building 3); Sand Digger Stand |
+| Berry | 0 | 1 | 0 | 18 | Ashberry bushes (2–4) |
+| Leaf | 0 | 1 | 0 | 18 | 2 from every Garden Bed harvest |
+| Stick | 0 | 1 | 0 | 18 | Buy: Herm (tier 1). Trees, bushes and stumps (115 objects); Lumberjack stand |
+| Water | 0 | 1 | 0 | 18 | Water well (10), Garden Well II (20) |
+| Blood | 0 | 0 | 1 | 14 | Corpses during an autopsy |
+| Blueberry | 0 | 0 | 1 | 14 | Blueberry bushes (2–4) |
+| Seed oil | 0 | 0 | 1 | 14 | Millstone: 4 flax, wheat, beet, carrot or cabbage seeds |
+| Flax | 1 | 1 | 0 | 13 | Buy: Tailor (tier 1). Garden Bed (Farming 5) |
+| Flour | 0 | 2 | 0 | 13 | Buy: Baker (tier 1). Millstone: 4 Wheat (Millstone tech) |
+| Onion | 0 | 2 | 0 | 13 | Buy: Herm (tier 2), Vegetable Stand (tier 2). Garden Bed (Farming 10) |
+| Swamp mushroom | 0 | 2 | 0 | 13 | Green mushroom nodes (2–3) |
+| Tooth | 1 | 1 | 0 | 13 | Formulation Bench: any skull (Skull and Teeth tech) |
+| Red Mushroom | 2 | 0 | 0 | 12 | Red mushroom nodes (2–3) |
+| Stone | 2 | 0 | 0 | 12 | Stone sources and junk piles (pickaxe); Zombie Stone Quarry |
+| Minced Meat | 0 | 0 | 2 | 10 | Millstone: 1 Flesh makes 2 |
+| Night flower | 0 | 0 | 2 | 10 | Night flower plants (2–3); demolishing a Flower Bed III |
+| Zombie goo | 0 | 0 | 2 | 10 | Buy: Gunter (tier 1). 6 per win in 24 battles, such as Market Square Purge |
+| Ash | 0 | 1 | 1 | 9 | Buy: Apothecary (tier 1). Crematorium I or II, with Salt (Body Places I) |
+| Beeswax | 1 | 2 | 0 | 9 | Beehive (1–2), Wild Honey (25% chance) |
+| Coal | 1 | 2 | 0 | 9 | Zombie Miner (2 per run, with Iron Ore) |
+| Peat | 0 | 1 | 1 | 9 | Compost Pile: 8 Leaves (Fertilizers I) |
+| Copper Nugget | 2 | 1 | 0 | 8 | Copper Vein (pickaxe, Smithing 2) |
+| Firefly | 1 | 0 | 2 | 8 | Buy: Gunter (tier 1). Rhododendron bushes (40% chance); Night flower |
+| Fragrance | 0 | 3 | 0 | 8 | Buy: Apothecary (tier 1). Distillation Cube: 2 Rhododendron + 2 Clay Urns (Church Smells I) |
+| Golden nugget | 2 | 1 | 0 | 8 | Buy: Trademaster. Gold looters' chests; Sluice Box (chance); Iron Ore + Philosopher Stone |
+| Heart | 1 | 0 | 2 | 8 | Formulation Bench: Heart + Organ Improver [white skull] (Anatomy 7); some corpses Red-/white-skull variants share the rune value. |
+| Iron Ore | 3 | 0 | 0 | 8 | Buy: Trademaster, Bishop, Harold. Common Ore Deposits (pickaxe); Zombie Miner |
+| Marble | 3 | 0 | 0 | 8 | Marble Sources (pickaxe, Building 4); Zombie Marble Quarry |
+| Melted Fat | 3 | 0 | 0 | 8 | Buy: Apothecary (tier 1). Distillation Cube: Fat or 3 Seed oil + 2 Clay Plates (Alchemy, Distillation) |
+| Pumpkin | 0 | 3 | 0 | 8 | Buy: Vegetable Stand (tier 2). Garden Bed (Farming 12) |
+| Cheese | 1 | 1 | 1 | 7 | Quest rewards: Town Cheese Drop, Forest Pardon Cheese |
+| Salt | 1 | 1 | 1 | 7 | Buy: Apothecary (tier 1), Baker (tier 1). Crematorium I or II, with Ash (Body Places I) |
+| Tin | 2 | 0 | 1 | 7 | Sluice Box: 3 Sand (Bronze Forge) |
+| Blue Crystal | 0 | 1 | 2 | 6 | Buy: Gunter (tier 1). Goddess's Tears (4) |
+| Goldfish | 0 | 2 | 1 | 6 | Buy: Fish Stand (tier 1). Fishing at the Port or in the Forest with Insect Bait (Farming 6) |
+| Guts | 0 | 1 | 2 | 6 | Formulation Bench: Guts + Organ Improver [white skull] (Anatomy 7); some corpses Red-/white-skull variants share the rune value. |
+| Honey | 0 | 2 | 1 | 6 | Beehive (3–6), Wild Honey (1–2) |
+| Hops | 0 | 2 | 1 | 6 | Buy: Brewery (tier 1). Garden Bed (Farming 7) |
+| Alcohol | 0 | 0 | 3 | 5 | Buy: Apothecary (tier 2). Distillation Cube: wine, cider or mead + 2 Clay Urns (Reanimation Liquid tech) |
+| Brain | 0 | 0 | 3 | 5 | Formulation Bench: Brain + Organ Improver [white skull] (Anatomy 7); some corpses Red-/white-skull variants share the rune value. |
+| Cacao | 0 | 2 | 1 | 0 | Buy: Trademaster. |
+
+**Body parts** (Blood, Flesh, Guts, Heart, Brain) come from autopsies and the Formulation Bench; only gold-quality Heart, Brain and Guts carry the runes above.
+
+### The 19 Alchemic Powders
+
+Powders are the exception to studying: their runes are known from the start and match their names exactly. All come from the Apothecary (tier 1; the three-rune powders tier 2).
+
+| Powder | R | G | B | F# |
 |---|---|---|---|---|
-| Clay | 1 | 0 | 0 | 21 |
-| Flesh | 1 | 0 | 0 | 21 |
 | Alchemic Powder (1 red) | 1 | 0 | 0 | 21 |
-| Sand | 1 | 0 | 0 | 21 |
-| Berry | 0 | 1 | 0 | 18 |
-| Leaf | 0 | 1 | 0 | 18 |
 | Alchemic Powder (1 green) | 0 | 1 | 0 | 18 |
-| Stick | 0 | 1 | 0 | 18 |
-| Water | 0 | 1 | 0 | 18 |
-| Blueberry | 0 | 0 | 1 | 14 |
-| Blood | 0 | 0 | 1 | 14 |
 | Alchemic Powder (1 blue) | 0 | 0 | 1 | 14 |
-| Seed oil | 0 | 0 | 1 | 14 |
-| Flax | 1 | 1 | 0 | 13 |
-| Flour | 0 | 2 | 0 | 13 |
-| Swamp mushroom | 0 | 2 | 0 | 13 |
-| Onion | 0 | 2 | 0 | 13 |
-| Alchemic Powder (2 green) | 0 | 2 | 0 | 13 |
 | Alchemic Powder (1 red, 1 green) | 1 | 1 | 0 | 13 |
-| Tooth | 1 | 1 | 0 | 13 |
-| Stone | 2 | 0 | 0 | 12 |
-| Red Mushroom | 2 | 0 | 0 | 12 |
+| Alchemic Powder (2 green) | 0 | 2 | 0 | 13 |
 | Alchemic Powder (2 red) | 2 | 0 | 0 | 12 |
 | Alchemic Powder (1 red, 1 blue) | 1 | 0 | 1 | 11 |
-| Night flower | 0 | 0 | 2 | 10 |
-| Minced Meat | 0 | 0 | 2 | 10 |
 | Alchemic Powder (2 blue) | 0 | 0 | 2 | 10 |
-| Zombie goo | 0 | 0 | 2 | 10 |
-| Ash | 0 | 1 | 1 | 9 |
-| Beeswax | 1 | 2 | 0 | 9 |
-
-**Body parts with runes** (gold-quality Heart/Brain/Guts only):
-
-| Body part | R | G | B |
-|---|---|---|---|
-| Blood | 0 | 0 | 1 |
-| Flesh | 1 | 0 | 0 |
-| Guts | 0 | 1 | 2 |
-| Heart | 1 | 0 | 2 |
-| Brain | 0 | 0 | 3 |
-
-**Honest gap**: community databases document **62–66 ingredients** (the counts disagree on whether all Alchemic Powder variants are counted); the table above carries the 30 verified rows plus the 5 rune-carrying body parts. The remainder are being transcribed and cross-checked before publication — this page ships with a gap it states rather than rows it invented. The 19 powders are self-documenting in the meantime: an Alchemic Powder's runes are exactly the ones in its name.
+| Alchemic Powder (1 green, 1 blue) | 0 | 1 | 1 | 9 |
+| Alchemic Powder (1 red, 2 green) | 1 | 2 | 0 | 9 |
+| Alchemic Powder (1 red, 2 blue) | 1 | 0 | 2 | 8 |
+| Alchemic Powder (2 red, 1 green) | 2 | 1 | 0 | 8 |
+| Alchemic Powder (3 green) | 0 | 3 | 0 | 8 |
+| Alchemic Powder (3 red) | 3 | 0 | 0 | 8 |
+| Alchemic Powder (1 red, 1 green, 1 blue) | 1 | 1 | 1 | 7 |
+| Alchemic Powder (2 red, 1 blue) | 2 | 0 | 1 | 7 |
+| Alchemic Powder (1 green, 2 blue) | 0 | 1 | 2 | 6 |
+| Alchemic Powder (2 green, 1 blue) | 0 | 2 | 1 | 6 |
+| Alchemic Powder (3 blue) | 0 | 0 | 3 | 5 |
 
 ## Battle potions, and what they actually do
 
@@ -139,8 +173,9 @@ The 12 combat formulas break down into four families of three tiers:
 
 | Date | Version | Source | Confidence |
 |---|---|---|---|
-| October 17, 2026 | 1.009 | Community-documented game data (formula rune totals, ingredient rows, lab rules) | Multi-source consistent |
-| October 17, 2026 | 1.009 | Remaining ingredient rows (~30) + 29th formula | **Pending transcription** |
+| October 24, 2026 | 1.010 | Full ingredient dataset (63 entries) vs. an independent community ingredient guide (66 rows) | **Cross-checked — zero value disagreements across all overlapping rows**; the 63-vs-66 gap is body-part quality variants |
+| October 24, 2026 | 1.010 | Formula dataset (28 entries) | Complete — the "29" figure counts Organ Improver's two variants |
+| October 17, 2026 | 1.009 | First transcription (30 rows, formulas, lab rules) | Superseded by the October 24 full table |
 
 ## What to read next
 
