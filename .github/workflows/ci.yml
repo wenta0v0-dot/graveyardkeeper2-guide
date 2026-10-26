@@ -49,22 +49,22 @@ jobs:
         with:
           site-url: ${{ vars.SITE_URL || 'https://anvil.wiki' }}
 
-      # TEMPORARY DIAGNOSTICS (2026-10-27): the composite cannot use always()
-      # internally, so the teed gate logs (/tmp/gate-*.log, same runner) are
-      # dumped here at the job level — step summaries and ::error::
-      # annotations are then readable via the public API without admin
-      # rights (job logs are not). Remove after the root cause is fixed.
-      - name: Diagnostics — failed gate logs (temporary)
-        if: always()
+      # TEMPORARY DIAGNOSTICS (2026-10-27): CI red while every gate passes
+      # locally; job logs need admin rights to download, so on failure this
+      # re-runs each (fast) gate and pushes the failing lines out as
+      # ::error:: annotations, which ARE readable via the public API. Remove
+      # after the root cause is fixed.
+      - name: Diagnostics — re-run gates, emit errors as annotations (temporary)
+        if: failure()
         run: |
-          {
-            for f in lint typecheck test config build content links i18n; do
-              echo "## gate: $f (tail)"
-              tail -c 3000 "/tmp/gate-$f.log" 2>/dev/null || echo "(did not run)"
-              echo
-            done
-          } >> "$GITHUB_STEP_SUMMARY"
-          grep -hE "error TS[0-9]|Error:|ELIFECYCLE|✖|✗" /tmp/gate-*.log 2>/dev/null | sort -u | head -10 | while IFS= read -r line; do echo "::error ::$line"; done
+          emit() { tail -c 2500 2>/dev/null <<< "$2" | grep -aiE "error TS[0-9]|Error:|ELIFECYCLE|✖|✗|failed|missing" | sort -u | head -6 | while IFS= read -r line; do echo "::error ::[$1] ${line:0:200}"; done; }
+          emit lint "$(pnpm lint 2>&1)"
+          emit typecheck "$(pnpm typecheck 2>&1)"
+          emit test "$(pnpm test 2>&1)"
+          emit check-config "$(pnpm check-config 2>&1)"
+          emit check-content "$(pnpm check-content 2>&1)"
+          emit check-i18n "$(pnpm check-i18n --strict-ui 2>&1)"
+          if [ -d dist ]; then emit check-links "$(pnpm check-links 2>&1)"; fi
 
   # tools/anvil-ops is excluded from the root tsconfig/eslint/workspace, so
   # its gates must run separately — without this job, PRs touching the ops

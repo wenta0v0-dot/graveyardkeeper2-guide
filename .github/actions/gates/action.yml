@@ -13,41 +13,24 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # TEMPORARY DIAGNOSTICS (2026-10-27): CI fails inside this composite on
-    # Linux in ~39s while every gate passes locally on Windows. Every gate
-    # tees its output to /tmp/gate-*.log; the calling workflow (ci.yml) dumps
-    # the tails into its step summary + ::error:: annotations at the job
-    # level, where they are readable via the public API without admin rights
-    # (job logs are not). Remove the tee wrappers + the ci.yml diagnostics
-    # step after the root cause is fixed.
     - name: Lint
-      run: |
-        pnpm lint 2>&1 | tee /tmp/gate-lint.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm lint
       shell: bash
 
     - name: Typecheck
-      run: |
-        pnpm typecheck 2>&1 | tee /tmp/gate-typecheck.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm typecheck
       shell: bash
 
     - name: Test
-      run: |
-        pnpm test 2>&1 | tee /tmp/gate-test.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm test
       shell: bash
 
     - name: Config consistency (nav/locale 3-place check)
-      run: |
-        pnpm check-config 2>&1 | tee /tmp/gate-config.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm check-config
       shell: bash
 
     - name: Build
-      run: |
-        pnpm build 2>&1 | tee /tmp/gate-build.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm build
       shell: bash
       env:
         # FORKS: set a repository variable SITE_URL (Settings → Secrets and
@@ -58,19 +41,13 @@ runs:
         SITE_URL: ${{ inputs.site-url }}
 
     - name: Content lint (H1/alt/slashes)
-      run: |
-        pnpm check-content 2>&1 | tee /tmp/gate-content.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm check-content
       shell: bash
 
     - name: Internal link audit (dist/)
-      run: |
-        pnpm check-links 2>&1 | tee /tmp/gate-links.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm check-links
       shell: bash
 
     - name: i18n UI key coverage (gate)
-      run: |
-        pnpm check-i18n --strict-ui 2>&1 | tee /tmp/gate-i18n.log
-        exit ${PIPESTATUS[0]}
+      run: pnpm check-i18n --strict-ui
       shell: bash
