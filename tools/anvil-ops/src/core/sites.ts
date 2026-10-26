@@ -1,6 +1,6 @@
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
-import { dirname, isAbsolute, join } from 'node:path';
+import { dirname, isAbsolute, join, sep } from 'node:path';
 import { parse as parseToml, stringify as stringifyToml } from 'smol-toml';
 import { OpsError } from './errors.js';
 import { loadSiteConfig } from './site.js';
@@ -31,7 +31,9 @@ const REGISTRY_HEADER = [
 export function sitesRegistryPath(env: NodeJS.ProcessEnv = process.env): string {
   const xdg = env['XDG_CONFIG_HOME']?.trim();
   const base = xdg && isAbsolute(xdg) ? xdg : join(homedir(), '.config');
-  return join(base, 'anvil-ops', 'sites.toml');
+  // Normalize to forward slashes so the registry path renders identically on
+  // Windows and Unix (it is echoed in docs, error hints and tests).
+  return join(base, 'anvil-ops', 'sites.toml').split(sep).join('/');
 }
 
 function siteSummary(registry: SitesRegistry): string {

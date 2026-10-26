@@ -1,6 +1,6 @@
 import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { homedir, tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   loadSitesRegistry,
@@ -184,8 +184,11 @@ describe('sitesRegistryPath', () => {
   });
 
   it('ignores relative XDG_CONFIG_HOME and falls back to ~/.config', () => {
+    // The registry path is normalized to forward slashes on every platform
+    // (see sitesRegistryPath) — mirror that here instead of joining with the
+    // platform separator.
     expect(sitesRegistryPath({ XDG_CONFIG_HOME: 'relative' })).toBe(
-      join(homedir(), '.config', 'anvil-ops', 'sites.toml'),
+      join(homedir(), '.config', 'anvil-ops', 'sites.toml').split(sep).join('/'),
     );
   });
 });

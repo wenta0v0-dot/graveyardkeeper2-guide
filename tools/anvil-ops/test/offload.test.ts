@@ -1,4 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
+import { mkdtempSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { canOffload, OFFLOAD_TIMEOUT_MS, WatchdogTimeout, watchdogTimeoutFix, withWatchdog } from '../src/mcp/offload.js';
 import { submitLockPath } from '../src/core/gitops.js';
 import { loadSiteConfig } from '../src/core/site.js';
@@ -39,7 +42,13 @@ describe('watchdog timeout self-rescue guidance', () => {
   // "Another submit is already running" with the server's own pid. The
   // timeout error must hand the user the exact lock file path.
   it('submit guidance names the exact leftover lock path for the site', () => {
-    const cwd = process.cwd();
+    // Self-contained site fixture: loadSiteConfig walks up from cwd looking
+    // for wrangler.toml, and the enclosing repo layout must not be assumed —
+    // forks may deploy via Workers with a wrangler.jsonc and no wrangler.toml
+    // at all (2026-10-27: this broke the suite on this fork AND on CI).
+    const base = mkdtempSync(join(tmpdir(), 'ops-offload-site-'));
+    writeFileSync(join(base, 'wrangler.toml'), '[vars]\nSITE_URL = "https://fixture.example"\n');
+    const cwd = base;
     const fix = watchdogTimeoutFix('submit', cwd);
     expect(fix).toMatch(/lock/i);
     // The path in the message must be THE lock path acquireSubmitLock

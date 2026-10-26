@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, sep } from 'node:path';
 import { OpsError } from './errors.js';
 
 export interface AioCsvRow {
@@ -92,7 +92,10 @@ export function parseAioCsv(text: string): AioCsvRow[] {
 export function aioArchivePath(siteRoot: string, now: Date = new Date()): string {
   const p = (n: number) => String(n).padStart(2, '0');
   const stamp = `${now.getFullYear()}-${p(now.getMonth() + 1)}-${p(now.getDate())}`;
-  const base = join(siteRoot, 'ops', 'ai-visibility', `${stamp}-aio.csv`);
+  // Normalize to forward slashes: the archived path surfaces in reports and
+  // docs, so it must be identical on Windows (join() yields backslashes there)
+  // and Unix. Node's fs accepts forward slashes on both.
+  const base = join(siteRoot, 'ops', 'ai-visibility', `${stamp}-aio.csv`).split(sep).join('/');
   if (!existsSync(base)) return base;
   // Two imports on the same day must not silently clobber each other —
   // keep the first archive and suffix the rest (-2, -3, …).

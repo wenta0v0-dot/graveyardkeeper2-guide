@@ -140,9 +140,13 @@ describe('MCP site resolution (multi-site registry)', () => {
     mkdirSync(emptyDir, { recursive: true });
     writeFileSync(join(siteDir, 'wrangler.toml'), '[vars]\nSITE_URL = "https://registry-site.com"\n');
     const registryPath = join(base, 'sites.toml');
+    // Hand-written TOML must escape backslashes exactly like smol-toml's
+    // stringify does for `anvil-ops sites add` — a raw Windows temp path
+    // (C:\Users\...) otherwise parses as an invalid unicode escape.
+    const sitePathToml = siteDir.replace(/\\/g, '\\\\');
     writeFileSync(
       registryPath,
-      `defaultSite = "main-wiki"\n\n[[sites]]\nname = "main-wiki"\npath = "${siteDir}"\n`,
+      `defaultSite = "main-wiki"\n\n[[sites]]\nname = "main-wiki"\npath = "${sitePathToml}"\n`,
     );
     return { registryPath, siteDir, emptyDir };
   }
