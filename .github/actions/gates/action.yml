@@ -13,12 +13,13 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    # TEMPORARY DIAGNOSTICS (2026-10-27): CI fails inside this composite in
-    # ~39s (lint or typecheck) on Linux while every gate passes locally on
-    # Windows. Tee the two fast-failing steps and dump their tails into the
-    # step summary + ::error:: annotations, which are readable via the public
-    # API without admin rights (job logs are not). Remove after the root
-    # cause is fixed.
+    # TEMPORARY DIAGNOSTICS (2026-10-27): CI fails inside this composite on
+    # Linux in ~39s while every gate passes locally on Windows. Every gate
+    # tees its output to /tmp/gate-*.log; the calling workflow (ci.yml) dumps
+    # the tails into its step summary + ::error:: annotations at the job
+    # level, where they are readable via the public API without admin rights
+    # (job logs are not). Remove the tee wrappers + the ci.yml diagnostics
+    # step after the root cause is fixed.
     - name: Lint
       run: |
         pnpm lint 2>&1 | tee /tmp/gate-lint.log
@@ -32,27 +33,21 @@ runs:
       shell: bash
 
     - name: Test
-      run: pnpm test
+      run: |
+        pnpm test 2>&1 | tee /tmp/gate-test.log
+        exit ${PIPESTATUS[0]}
       shell: bash
 
     - name: Config consistency (nav/locale 3-place check)
-      run: pnpm check-config
-      shell: bash
-
-    - name: Diagnostics — dump failed gate logs (temporary)
-      if: always()
       run: |
-        {
-          echo "## gate: lint (tail)"
-          tail -c 4000 /tmp/gate-lint.log 2>/dev/null || echo "(lint did not run)"
-          echo "## gate: typecheck (tail)"
-          tail -c 4000 /tmp/gate-typecheck.log 2>/dev/null || echo "(typecheck did not run)"
-        } >> "$GITHUB_STEP_SUMMARY"
-        grep -E "error|Error|ELIFECYCLE" /tmp/gate-lint.log /tmp/gate-typecheck.log 2>/dev/null | head -20 | while IFS= read -r line; do echo "::error ::$line"; done
+        pnpm check-config 2>&1 | tee /tmp/gate-config.log
+        exit ${PIPESTATUS[0]}
       shell: bash
 
     - name: Build
-      run: pnpm build
+      run: |
+        pnpm build 2>&1 | tee /tmp/gate-build.log
+        exit ${PIPESTATUS[0]}
       shell: bash
       env:
         # FORKS: set a repository variable SITE_URL (Settings → Secrets and
@@ -63,13 +58,19 @@ runs:
         SITE_URL: ${{ inputs.site-url }}
 
     - name: Content lint (H1/alt/slashes)
-      run: pnpm check-content
+      run: |
+        pnpm check-content 2>&1 | tee /tmp/gate-content.log
+        exit ${PIPESTATUS[0]}
       shell: bash
 
     - name: Internal link audit (dist/)
-      run: pnpm check-links
+      run: |
+        pnpm check-links 2>&1 | tee /tmp/gate-links.log
+        exit ${PIPESTATUS[0]}
       shell: bash
 
     - name: i18n UI key coverage (gate)
-      run: pnpm check-i18n --strict-ui
+      run: |
+        pnpm check-i18n --strict-ui 2>&1 | tee /tmp/gate-i18n.log
+        exit ${PIPESTATUS[0]}
       shell: bash

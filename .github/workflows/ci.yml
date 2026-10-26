@@ -49,6 +49,23 @@ jobs:
         with:
           site-url: ${{ vars.SITE_URL || 'https://anvil.wiki' }}
 
+      # TEMPORARY DIAGNOSTICS (2026-10-27): the composite cannot use always()
+      # internally, so the teed gate logs (/tmp/gate-*.log, same runner) are
+      # dumped here at the job level — step summaries and ::error::
+      # annotations are then readable via the public API without admin
+      # rights (job logs are not). Remove after the root cause is fixed.
+      - name: Diagnostics — failed gate logs (temporary)
+        if: always()
+        run: |
+          {
+            for f in lint typecheck test config build content links i18n; do
+              echo "## gate: $f (tail)"
+              tail -c 3000 "/tmp/gate-$f.log" 2>/dev/null || echo "(did not run)"
+              echo
+            done
+          } >> "$GITHUB_STEP_SUMMARY"
+          grep -hE "error TS[0-9]|Error:|ELIFECYCLE|✖|✗" /tmp/gate-*.log 2>/dev/null | sort -u | head -10 | while IFS= read -r line; do echo "::error ::$line"; done
+
   # tools/anvil-ops is excluded from the root tsconfig/eslint/workspace, so
   # its gates must run separately — without this job, PRs touching the ops
   # CLI/MCP would land on main with zero test signal (first failure would
