@@ -1,0 +1,13 @@
+{
+  // Workers Assets deploy — pure static, no SSR adapter. This file exists to
+  // STOP `wrangler deploy`'s auto-config: with no config present it detected
+  // Astro, injected @astrojs/cloudflare mid-deploy and broke the second build
+  // (getAllWithMetadata is not a function — static output can't prerender
+  // through workerd). With a config present, wrangler deploys dist/ as-is.
+  "name": "graveyardkeeper2-guide",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  }
+}
