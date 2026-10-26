@@ -33,13 +33,16 @@ const target = path.join(dist, filename);
 fs.writeFileSync(target, found.key, 'utf8');
 console.log(`[IndexNow] Wrote dist/${filename} (source: ${found.source})`);
 
-// Cloudflare Pages exposes the Git commit SHA to the production build. Publish
-// it as a tiny no-sitemap marker so the post-CI workflow can distinguish the
-// NEW deployment from the previous one before reading the production sitemap.
-const commitSha = process.env.CF_PAGES_COMMIT_SHA?.trim();
+// Cloudflare Pages exposes the Git commit SHA to the production build. Workers
+// Builds — the unified successor this site deploys through (2026-10-27) — does
+// not inject CF_PAGES_COMMIT_SHA; it sets GITHUB_SHA instead. Accept either.
+// Publish it as a tiny no-sitemap marker so the post-CI workflow can
+// distinguish the NEW deployment from the previous one before reading the
+// production sitemap.
+const commitSha = (process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA)?.trim();
 if (commitSha) {
   if (!/^[0-9a-f]{40}$/i.test(commitSha)) {
-    throw new Error('CF_PAGES_COMMIT_SHA must be a 40-character Git SHA when set.');
+    throw new Error('Deployment commit SHA (CF_PAGES_COMMIT_SHA/GITHUB_SHA) must be a 40-character Git SHA when set.');
   }
   const wellKnown = path.join(dist, '.well-known');
   fs.mkdirSync(wellKnown, { recursive: true });
