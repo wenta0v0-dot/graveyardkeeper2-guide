@@ -17,6 +17,23 @@
 - **配方深度页(2026-10-24)**:借鉴 Wikily 单页骨架(一句话摘要→Quick facts 定义表→最便宜组合表→分步做法→用途→互链),新增 5 篇 items 深度页:reanimation-liquid / dream-dust / paint-recipe / organ-improver / philosopher-stone;每页含精确符文、实验室等级、最便宜组合(逐条符文加总亲验)、材料来源、用途与售价,速查表加「Formula deep dives」区互通;不自行推算总组合数(对方计数把品质变体算独立物品,存在口径差),只用数据集权威字段
 - **祷词布道全表(2026-10-27)**:补上信仰页长期标注的缺口——新增 guides/prayers-and-sermons-guide(26 祷词解锁来源+研发成本 + 58 条布道分级全表:Start/Guaranteed/Mastery/信仰与金钱产出/成功奖励,含 Excessive Zombies 减益标注与 Priest/Cardinal/Performer 加成口径、16 种布道 buff 清单、按需求的最佳选择表);表头定义与数值口径逐条取自源指南自述;信仰页「我们没有这份数据」的旧说法改为指向新页;四个无布道的祷词(Repentance/Labor/Insanity Less/More)如实标注
 - **资源/工具/钓鱼三件套(2026-10-27)**:items 新增 4 篇资源页(iron-ore/marble/blue-crystal/zombie-goo:价格、堆叠、研习点数、世界矿点数量与精通门槛、僵尸工位配方、用途清单、炼金符文);guides 新增 tools-and-upgrades(32 件工具九大分支全表:配方/售价/精通加成,附「哪件工具加速哪个僵尸工位」——Iron Pickaxe 加速三个采集站)与 fishing-guide(22 种鱼×6 渔点×4 鱼饵全表:鱼饵/渔点/最佳时段/搏斗难度含 Fisherman 减益/售价,4 条无买家传说鱼单独标注);数据源 wikily 结构化 items/fish 数据集(544 物品全量分页);老页互链已接(zombie→蓝晶石、money→钓鱼、炼金表→四资源页)
+## 域名 + Cloudflare Pages + AdSense 切换手册(2026-10-27 备妥)
+
+**前置已就绪(本次)**:
+- 🐛 修复 astro.config 域名双源 bug:原 `SITE_URL` 未设时 sitemap 回退 `anvil.wiki` 而 canonical/og 走 site.ts(一个 dist 两套域名);现 env > site.ts 单源,与 transpile-pagefind/check-links 同口径。**换域名 = 改 site.ts 的 `domain:` 一行 + push,完事**
+- ship.mjs 去掉硬编码 SITE_URL;`.nvmrc` = 22(CF Pages 自动用 Node 22);package.json 已有 `packageManager: pnpm@11.1.1`(CF 经 corepack 拿 pnpm 11)
+- 广告接线现状:AdSense 三位已挂载(StickyBanner 在 LocaleLayout,InContentAd + MobileAnchorAd 在 ArticlePage),ads.txt 占位就绪(过审前保持注释态是正确姿势),全部变量见 .env.example
+
+**切换步骤**(用户侧 1-3,我侧 4-5):
+1. 注册域名:推荐 Cloudflare Registrar(成本价、DNS 自动同 zone)或 Namecheap
+2. CF Dashboard → Workers & Pages → Create → Pages → Connect to Git 选本仓库:build `pnpm build`、output `dist`、Production branch main(env 可不配任何变量,域名单源在仓库里)
+3. pages.dev 预览域名验收(文章/搜索/图片)→ Custom domains 绑定新域名
+4. **切换日**:把域名告诉我 → 改 site.ts + push → CF 自动重建 → 线上验证 → GitHub Pages 关闭(Settings → Pages → Source: None,防双源收录)
+5. 收尾:GSC 加新资源 `https://<域名>/`(验证文件 googleaa…html 已在 public/)→ 提交 sitemap-index.xml → GSC 变更地址工具;GitHub Actions 变量 SITE_URL 改新域(IndexNow 用);可选 CF Web Analytics(PUBLIC_CF_BEACON_TOKEN)
+6. AdSense:GSC 收录稳定后以新域名申请;拿到 pub-ID 后 ads.txt 去注释;过审后 CF env 加 `PUBLIC_ADSENSE_CLIENT` + 三个 `PUBLIC_ADSENSE_SLOT_*` → 下次部署自动出广告。申请前体检报告见 2026-10-27 会话
+
+注意:切到 CF Pages 后,补丁自动化(每日 ship+push)依然生效——push 触发 CF Git 集成自动重建;ship.mjs 的镜像到根目录步骤在 GH Pages 关闭后成为无害冗余,可择机退役
+
 - **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论

@@ -194,7 +194,18 @@ function buildLastmodMap(
   return map;
 }
 
-const siteOrigin = process.env.SITE_URL || 'https://anvil.wiki';
+// Domain resolution order matches scripts/transpile-pagefind.mjs and
+// scripts/check-links.ts: SITE_URL env wins, then the site.ts config layer.
+// The old hard-coded 'https://anvil.wiki' fallback built sitemaps pointing
+// at the template demo whenever SITE_URL was unset (env-less fork builds):
+// canonical/og came from site.ts while the sitemap said anvil.wiki — two
+// sources disagreeing in one dist. site.ts is now the single fallback, so
+// the domain is configured in exactly one place for every deploy target.
+const siteDomain =
+  fs
+    .readFileSync(path.resolve('./src/config/site.ts'), 'utf8')
+    .match(/^\s*domain:\s*['"]([^'"]+)['"]/m)?.[1] ?? '';
+const siteOrigin = process.env.SITE_URL || (siteDomain ? `https://${siteDomain}` : 'https://anvil.wiki');
 
 // Project-site subpath (GitHub Pages "/<repo>/") derived from the SITE_URL
 // path — one source of truth: SITE_URL carries the subpath for canonical/

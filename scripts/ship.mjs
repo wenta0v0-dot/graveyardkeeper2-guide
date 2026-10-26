@@ -31,9 +31,11 @@ const DIST = join(ROOT, 'dist');
 const MANIFEST = join(ROOT, '.ship-manifest.json');
 const BUILD_ONLY = process.argv.includes('--build-only');
 
-process.env.SITE_URL ||= 'https://wenta0v0-dot.github.io/graveyardkeeper2-guide';
-
-console.log(`🚢 ship — building with SITE_URL=${process.env.SITE_URL}`);
+// SITE_URL is intentionally NOT forced here any more: astro.config.ts falls
+// back to the site.ts config layer, which is the single source of truth for
+// the domain (local builds, CI and Cloudflare Pages all build identically
+// with zero env vars). A SITE_URL env var still wins when set.
+console.log(`🚢 ship — building (SITE_URL env: ${process.env.SITE_URL || 'unset — using site.ts domain'})`);
 // pnpm build = astro build + postbuild(pagefind 索引 + ES2018 转译 +
 // IndexNow key)——走 CLI 而非 programmatic API,和本地验证、CI 完全同一条管线。
 const result = spawnSync('pnpm build', { stdio: 'inherit', shell: true });
