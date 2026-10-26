@@ -1,6 +1,13 @@
 allowBuilds:
   esbuild: true
   sharp: true
+  # Cloudflare Pages deploy runs wrangler, whose hard dep workerd needs its
+  # postinstall (binary setup). pnpm 11 blocks it by default on CF's clean
+  # build image → ERR_PNPM_IGNORED_BUILDS at the Deploying stage (2026-10-27
+  # first Pages deploy). Local machines that once ran `pnpm approve-builds`
+  # never see this; CI/CF do.
+  workerd: true
+  wrangler: true
 # Dependency-security floor (2026-09-14 B/C-tier migration batch, issue #37):
 # the A-tier batch pinned six transitive deps via overrides; the Astro 7
 # upgrade resolved sharp/fast-uri/js-yaml/svgo natively past their advisory
