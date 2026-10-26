@@ -6,6 +6,7 @@
  * backward-compatible fallback. No key source means IndexNow stays disabled.
  */
 
+import { execSync } from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import {
@@ -33,16 +34,30 @@ const target = path.join(dist, filename);
 fs.writeFileSync(target, found.key, 'utf8');
 console.log(`[IndexNow] Wrote dist/${filename} (source: ${found.source})`);
 
-// Cloudflare Pages exposes the Git commit SHA to the production build. Workers
-// Builds — the unified successor this site deploys through (2026-10-27) — does
-// not inject CF_PAGES_COMMIT_SHA; it sets GITHUB_SHA instead. Accept either.
-// Publish it as a tiny no-sitemap marker so the post-CI workflow can
-// distinguish the NEW deployment from the previous one before reading the
-// production sitemap.
-const commitSha = (process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA)?.trim();
+// Cloudflare Pages exposes the Git commit SHA to the production build.
+// Workers Builds — the unified successor this site deploys through
+// (2026-10-27) — injects neither CF_PAGES_COMMIT_SHA nor GITHUB_SHA
+// (verified live: the marker 404'd with both in the fallback chain), so the
+// last resort is the build machine itself: a Git-integrated build runs in a
+// fresh clone, where `git rev-parse HEAD` IS the deployed commit. Publish it
+// as a tiny no-sitemap marker so the post-CI workflow can distinguish the
+// NEW deployment from the previous one before reading the production sitemap.
+function deployedCommitSha(): string | undefined {
+  const injected = (process.env.CF_PAGES_COMMIT_SHA || process.env.GITHUB_SHA)?.trim();
+  if (injected) return injected;
+  try {
+    return execSync('git rev-parse HEAD', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch {
+    return undefined;
+  }
+}
+const commitSha = deployedCommitSha();
 if (commitSha) {
   if (!/^[0-9a-f]{40}$/i.test(commitSha)) {
-    throw new Error('Deployment commit SHA (CF_PAGES_COMMIT_SHA/GITHUB_SHA) must be a 40-character Git SHA when set.');
+    throw new Error('Deployment commit SHA (CF_PAGES_COMMIT_SHA/GITHUB_SHA/git) must be a 40-character Git SHA when set.');
   }
   const wellKnown = path.join(dist, '.well-known');
   fs.mkdirSync(wellKnown, { recursive: true });
