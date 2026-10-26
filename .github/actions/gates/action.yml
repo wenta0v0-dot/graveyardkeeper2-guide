@@ -13,12 +13,22 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    # TEMPORARY DIAGNOSTICS (2026-10-27): CI fails inside this composite in
+    # ~39s (lint or typecheck) on Linux while every gate passes locally on
+    # Windows. Tee the two fast-failing steps and dump their tails into the
+    # step summary + ::error:: annotations, which are readable via the public
+    # API without admin rights (job logs are not). Remove after the root
+    # cause is fixed.
     - name: Lint
-      run: pnpm lint
+      run: |
+        pnpm lint 2>&1 | tee /tmp/gate-lint.log
+        exit ${PIPESTATUS[0]}
       shell: bash
 
     - name: Typecheck
-      run: pnpm typecheck
+      run: |
+        pnpm typecheck 2>&1 | tee /tmp/gate-typecheck.log
+        exit ${PIPESTATUS[0]}
       shell: bash
 
     - name: Test
@@ -27,6 +37,18 @@ runs:
 
     - name: Config consistency (nav/locale 3-place check)
       run: pnpm check-config
+      shell: bash
+
+    - name: Diagnostics — dump failed gate logs (temporary)
+      if: always()
+      run: |
+        {
+          echo "## gate: lint (tail)"
+          tail -c 4000 /tmp/gate-lint.log 2>/dev/null || echo "(lint did not run)"
+          echo "## gate: typecheck (tail)"
+          tail -c 4000 /tmp/gate-typecheck.log 2>/dev/null || echo "(typecheck did not run)"
+        } >> "$GITHUB_STEP_SUMMARY"
+        grep -E "error|Error|ELIFECYCLE" /tmp/gate-lint.log /tmp/gate-typecheck.log 2>/dev/null | head -20 | while IFS= read -r line; do echo "::error ::$line"; done
       shell: bash
 
     - name: Build
