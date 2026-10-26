@@ -8,7 +8,7 @@
 - 部署流程:Git 集成自动构建(build `pnpm build` / output `dist` / deploy `npx wrangler deploy`),仓库根 `wrangler.jsonc` 固定静态资产部署(404 由 dist/404.html 承接)——**push 即上线**,不再需要 ship.mjs 镜像(GH Pages 退役后镜像步骤冗余无害,择机退役)
 - 迁移踩坑记录:①astro.config 域名双源 bug(env 未设时 sitemap 回退 anvil.wiki)已修,域名单源 site.ts;②CF 新版 Workers 部署的 wrangler auto-config 会对无配置仓库强插 SSR 适配器破坏静态构建→wrangler.jsonc 根治;③pnpm 11 的 workerd/wrangler postinstall 需 allowBuilds 白名单
 - 验收结果:sitemap 全部 68 URL 200、canonical/og 指 gk2wiki.com、404 行为正确、pagefind 搜索可用、ads.txt/robots/GSC 验证文件在线
-- 待收尾:GH Pages 关闭(Settings→Pages→None)、GitHub Actions 变量 SITE_URL→https://gk2wiki.com、GSC 新资源+sitemap 提交、www.gk2wiki.com 域名绑定(可选)
+- 待收尾:~~GH Pages 关闭~~(**已完成** 2026-10-27,Unpublish site,旧地址 404)、GitHub Actions 变量 SITE_URL→https://gk2wiki.com、GSC 新资源+sitemap 提交、www.gk2wiki.com 域名绑定(可选)
 
 ## 0. 已上线(2026-10-16)
 
