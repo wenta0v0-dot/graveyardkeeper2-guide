@@ -15,6 +15,7 @@
 - **成就页更正(2026-10-17)**:PSNProfiles 奖杯全文(10/9 发布)比对发现首版从 GameBrief 转引的条件多处不符(Words of Faith 实为首次布道、Warmaker 实为打造 50 件战争装备、Merchants' Best Friend 实为 25 笔商人订单、Alcohol Baron 是 100 瓶非 50、Supplier 是「制造」非「运送」等),且该来源有 7 个名字不在游戏数据名单(真实名单来自 graveyardkeeper2.cc 直读构建数据);全部 38 行改用平台奖杯文本+游戏数据名单重写,5 个 Steam 隐藏成就改用 PS 公开条件(替换 GK2DB 传闻——其中 An Unlikely Pair=Agatha+Herbert、Two Broken Souls=Jack+Gunter,传闻原指向 Davy/Red Eye 为错),验证日志加更正条目;补丁页每日自动化(10:00)已建,首日核验 1.010 为最新无动作
 - **炼金表补全(2026-10-24)**:两源交叉(结构化材料数据集 63 条 + 独立社区指南 66 行)**同名材料 RGB 零冲突**;补齐全部 63 条材料(44 原料/身体部件含「哪里获取」列 + 19 种炼金粉末),把「66 vs 63」口径写清(差 3 = Heart/Brain/Guts 品质变体),Cacao 标注 F0 不入配方;第 29 配方之谜解开=Organ Improver 红/白骷髅两变体算 2 条(28 条记录=29 公式);页面「Honest gap / Pending」全部清零,验证日志记交叉核验结论
 - **配方深度页(2026-10-24)**:借鉴 Wikily 单页骨架(一句话摘要→Quick facts 定义表→最便宜组合表→分步做法→用途→互链),新增 5 篇 items 深度页:reanimation-liquid / dream-dust / paint-recipe / organ-improver / philosopher-stone;每页含精确符文、实验室等级、最便宜组合(逐条符文加总亲验)、材料来源、用途与售价,速查表加「Formula deep dives」区互通;不自行推算总组合数(对方计数把品质变体算独立物品,存在口径差),只用数据集权威字段
+- **祷词布道全表(2026-10-27)**:补上信仰页长期标注的缺口——新增 guides/prayers-and-sermons-guide(26 祷词解锁来源+研发成本 + 58 条布道分级全表:Start/Guaranteed/Mastery/信仰与金钱产出/成功奖励,含 Excessive Zombies 减益标注与 Priest/Cardinal/Performer 加成口径、16 种布道 buff 清单、按需求的最佳选择表);表头定义与数值口径逐条取自源指南自述;信仰页「我们没有这份数据」的旧说法改为指向新页;四个无布道的祷词(Repentance/Labor/Insanity Less/More)如实标注
 - **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论
