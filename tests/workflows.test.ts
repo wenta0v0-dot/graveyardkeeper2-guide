@@ -42,7 +42,7 @@
  *      freshness-audit issue close warns loudly instead of being swallowed.
  */
 import { spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { pathToFileURL, fileURLToPath } from 'node:url';
@@ -459,6 +459,13 @@ describe('setup.yml python [vars] rewrite is value-aware (executes the real here
   // CI's ubuntu runner always has python3, so the contract still runs in the
   // gate; only the local convenience degrades, loudly and visibly.
   const hasPython3 = spawnSync('python3', ['--version'], { encoding: 'utf8' }).status === 0;
+  // The FORKER header fixture pins the real shipping wrangler.toml. Forks
+  // that deploy via Workers (wrangler.jsonc) have no wrangler.toml at all —
+  // without this guard the fixture ENOENTs on CI while passing locally on
+  // machines where python3 is absent and the skipIf masks it (2026-10-27:
+  // this exact mismatch kept this fork's CI red since day one, which in
+  // turn kept the IndexNow workflow — gated on CI success — skipped).
+  const hasWranglerToml = existsSync(join(root, 'wrangler.toml'));
   const extractVarsPython = (): string => {
     const wf = readWorkflow(SETUP) as Workflow;
     const step = wf.jobs?.setup?.steps?.find(
@@ -562,7 +569,7 @@ describe('setup.yml python [vars] rewrite is value-aware (executes the real here
     expect(pyValues).toEqual([...DEMO_VAR_VALUES].sort());
   });
 
-  test.skipIf(!hasPython3)('the FORKER warning block is actually removed (real-header fixture), and absence warns instead of failing', () => {
+  test.skipIf(!hasPython3 || !hasWranglerToml)('the FORKER warning block is actually removed (real-header fixture), and absence warns instead of failing', () => {
     // Pinned against the REAL shipping header (authors.ts precedent): if the
     // wrangler.toml anchors drift, this goes red instead of the workflow
     // silently leaving a block that lies about the file still being demo.
