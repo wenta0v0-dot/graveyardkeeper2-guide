@@ -16,6 +16,7 @@
 - **炼金表补全(2026-10-24)**:两源交叉(结构化材料数据集 63 条 + 独立社区指南 66 行)**同名材料 RGB 零冲突**;补齐全部 63 条材料(44 原料/身体部件含「哪里获取」列 + 19 种炼金粉末),把「66 vs 63」口径写清(差 3 = Heart/Brain/Guts 品质变体),Cacao 标注 F0 不入配方;第 29 配方之谜解开=Organ Improver 红/白骷髅两变体算 2 条(28 条记录=29 公式);页面「Honest gap / Pending」全部清零,验证日志记交叉核验结论
 - **配方深度页(2026-10-24)**:借鉴 Wikily 单页骨架(一句话摘要→Quick facts 定义表→最便宜组合表→分步做法→用途→互链),新增 5 篇 items 深度页:reanimation-liquid / dream-dust / paint-recipe / organ-improver / philosopher-stone;每页含精确符文、实验室等级、最便宜组合(逐条符文加总亲验)、材料来源、用途与售价,速查表加「Formula deep dives」区互通;不自行推算总组合数(对方计数把品质变体算独立物品,存在口径差),只用数据集权威字段
 - **祷词布道全表(2026-10-27)**:补上信仰页长期标注的缺口——新增 guides/prayers-and-sermons-guide(26 祷词解锁来源+研发成本 + 58 条布道分级全表:Start/Guaranteed/Mastery/信仰与金钱产出/成功奖励,含 Excessive Zombies 减益标注与 Priest/Cardinal/Performer 加成口径、16 种布道 buff 清单、按需求的最佳选择表);表头定义与数值口径逐条取自源指南自述;信仰页「我们没有这份数据」的旧说法改为指向新页;四个无布道的祷词(Repentance/Labor/Insanity Less/More)如实标注
+- **资源/工具/钓鱼三件套(2026-10-27)**:items 新增 4 篇资源页(iron-ore/marble/blue-crystal/zombie-goo:价格、堆叠、研习点数、世界矿点数量与精通门槛、僵尸工位配方、用途清单、炼金符文);guides 新增 tools-and-upgrades(32 件工具九大分支全表:配方/售价/精通加成,附「哪件工具加速哪个僵尸工位」——Iron Pickaxe 加速三个采集站)与 fishing-guide(22 种鱼×6 渔点×4 鱼饵全表:鱼饵/渔点/最佳时段/搏斗难度含 Fisherman 减益/售价,4 条无买家传说鱼单独标注);数据源 wikily 结构化 items/fish 数据集(544 物品全量分页);老页互链已接(zombie→蓝晶石、money→钓鱼、炼金表→四资源页)
 - **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论
