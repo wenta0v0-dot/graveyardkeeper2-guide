@@ -42,6 +42,7 @@
 
 注意:切到 CF Pages 后,补丁自动化(每日 ship+push)依然生效——push 触发 CF Git 集成自动重建;ship.mjs 的镜像到根目录步骤在 GH Pages 关闭后成为无害冗余,可择机退役
 
+- **CI 修绿 + IndexNow 激活(2026-10-27)**:三连根因——①ops-toolkit 的 Windows 路径测试失败(aioArchivePath/sitesRegistryPath join 反斜杠→源码规范化正斜杠;mcp.test 手写 TOML 未转义→fixture 转义;offload.test 假设 cwd 在站点内→自包含 fixture)②check 的 FORKER fixture 无 skip 守卫读不存在的 wrangler.toml(本地无 python3 被 skipIf 掩盖,CI Ubuntu 有 python3 执行→ENOENT;→补 hasWranglerToml 跳过)③IndexNow 的部署标记依赖 CF_PAGES_COMMIT_SHA(经典 Pages 专属),Workers Builds 不注入→改为 CF_PAGES_COMMIT_SHA/GITHUB_SHA/git rev-parse HEAD 三级回退;诊断手段=临时 ::error:: 注解重跑(日志 API 需管理员,注解匿名可读),已还原;**CI 建站以来首次全绿,IndexNow 同步首次 success(68 URL 提交)**
 - **主题色**:蜡封红 #8E3B2F;favicon/hero 图仍是模板默认,待换 GK2 主题素材
 
 ## 0. 一句话结论
