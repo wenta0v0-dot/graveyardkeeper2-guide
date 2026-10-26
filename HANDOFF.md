@@ -1,6 +1,14 @@
 # Graveyard Keeper 2 指导站 — 项目简报(HANDOFF)
 
-> 状态:**已拍板(2026-10-16)并上线**。本文件与 breakstealegg-site/HANDOFF.md 同构。
+> 状态:**已上线 gk2wiki.com(2026-10-27 切换完成)**。本文件与 breakstealegg-site/HANDOFF.md 同构。
+
+## 域名切换完成记录(2026-10-27)
+
+- **线上地址**:**https://gk2wiki.com/**(Cloudflare Workers 静态资产部署,域名注册于 Spaceship,NS 已切至 Cloudflare)
+- 部署流程:Git 集成自动构建(build `pnpm build` / output `dist` / deploy `npx wrangler deploy`),仓库根 `wrangler.jsonc` 固定静态资产部署(404 由 dist/404.html 承接)——**push 即上线**,不再需要 ship.mjs 镜像(GH Pages 退役后镜像步骤冗余无害,择机退役)
+- 迁移踩坑记录:①astro.config 域名双源 bug(env 未设时 sitemap 回退 anvil.wiki)已修,域名单源 site.ts;②CF 新版 Workers 部署的 wrangler auto-config 会对无配置仓库强插 SSR 适配器破坏静态构建→wrangler.jsonc 根治;③pnpm 11 的 workerd/wrangler postinstall 需 allowBuilds 白名单
+- 验收结果:sitemap 全部 68 URL 200、canonical/og 指 gk2wiki.com、404 行为正确、pagefind 搜索可用、ads.txt/robots/GSC 验证文件在线
+- 待收尾:GH Pages 关闭(Settings→Pages→None)、GitHub Actions 变量 SITE_URL→https://gk2wiki.com、GSC 新资源+sitemap 提交、www.gk2wiki.com 域名绑定(可选)
 
 ## 0. 已上线(2026-10-16)
 
