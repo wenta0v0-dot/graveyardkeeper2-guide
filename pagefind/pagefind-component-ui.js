@@ -306,7 +306,7 @@
       n && (Lt = n[1]);
     }
   } catch (e) {
-    Lt = "/graveyardkeeper2-guide/pagefind/";
+    Lt = "/pagefind/";
   }
   var Te = class {
     constructor(s, e = {}) {
@@ -328,7 +328,7 @@
       this.activeShortcuts = [];
       this.faceted = false;
       this.generatedIds = /* @__PURE__ */ new Set();
-      this.name = s, this.__hooks__ = { search: [], filters: [], loading: [], results: [], error: [], translations: [] }, this.options = { bundlePath: (_b = (_a = e.bundlePath) != null ? _a : Lt) != null ? _b : "/graveyardkeeper2-guide/pagefind/", mergeIndex: (_c = e.mergeIndex) != null ? _c : [] };
+      this.name = s, this.__hooks__ = { search: [], filters: [], loading: [], results: [], error: [], translations: [] }, this.options = { bundlePath: (_b = (_a = e.bundlePath) != null ? _a : Lt) != null ? _b : "/pagefind/", mergeIndex: (_c = e.mergeIndex) != null ? _c : [] };
       let t = { ...e };
       delete t.bundlePath, delete t.mergeIndex, this.pagefindOptions = t, this._announcer = new De(this.generateId.bind(this));
     }
@@ -601,7 +601,7 @@
         }
       } catch (e) {
       }
-      return "/graveyardkeeper2-guide/pagefind/";
+      return "/pagefind/";
     }
     getInstance(s = "default", e = {}) {
       let t = this.instances.get(s);

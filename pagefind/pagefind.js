@@ -703,7 +703,7 @@ var PagefindInstance = class {
     this.backend = wasm_bindgen;
     this.decoder = new TextDecoder("utf-8");
     this.wasm = null;
-    let basePath = opts.basePath || "/graveyardkeeper2-guide/pagefind/";
+    let basePath = opts.basePath || "/pagefind/";
     let primary = opts.primary || false;
     if (primary && !opts.basePath && isBrowser()) {
       basePath = this.initPrimaryBasePath(basePath);
@@ -1333,7 +1333,7 @@ var PagefindWrapper = class {
     __publicField(this, "initialized", false);
     __publicField(this, "useWorker", false);
     this.instanceId = generateInstanceId();
-    this.basePath = options2.basePath || "/graveyardkeeper2-guide/pagefind/";
+    this.basePath = options2.basePath || "/pagefind/";
     this.initOptions = options2;
     if (/[^\/]$/.test(this.basePath)) {
       this.basePath = `${this.basePath}/`;

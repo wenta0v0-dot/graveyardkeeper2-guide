@@ -6,8 +6,8 @@
  * 产物在 dist/。这个脚本把 dist/ 的内容镜像到仓库根目录,让"deploy from
  * branch"的 Pages 设置继续生效——push 即发布,不需要改任何 dashboard 配置。
  *
- *   node scripts/ship.mjs            # 构建(SITE_URL 来自 site.ts domain,
- *                                    # 已含 /graveyardkeeper2-guide 子路径)并镜像
+ *   node scripts/ship.mjs            # 构建(域名单源在 site.ts,2026-10-27 起
+ *                                    # 为 gk2wiki.com)并镜像
  *   node scripts/ship.mjs --build-only
  *
  * 镜像语义:

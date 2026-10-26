@@ -65,7 +65,7 @@ export const site: SiteConfig = {
   name: 'Graveyard Keeper 2 Wiki',
   shortName: 'GK2 Guide',
   description: 'An unofficial player-made wiki for Graveyard Keeper 2: the console-commands and cheats truth, beginner guides, and troubleshooting for every progression blocker. Verified and dated after every game update.',
-  domain: 'wenta0v0-dot.github.io/graveyardkeeper2-guide',
+  domain: 'gk2wiki.com',
   tagline: 'The troubleshooter\'s guide — direct answers, dated checks, no filler.',
   legalNotice: 'Unofficial fan-made guide. Not affiliated with the developers or publishers of Graveyard Keeper 2. All game names and trademarks belong to their respective owners.',
   // Set a real address if you run no social channels — the contact page

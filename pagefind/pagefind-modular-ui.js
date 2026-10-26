@@ -289,7 +289,7 @@
   try {
     (document == null ? void 0 : document.currentScript) && document.currentScript.tagName.toUpperCase() === "SCRIPT" && (u = new URL(document.currentScript.src).pathname.match(/^(.*\/)(?:pagefind-)?modular-ui.js.*$/)[1]);
   } catch (e) {
-    u = "/graveyardkeeper2-guide/pagefind/";
+    u = "/pagefind/";
   }
   var p = class {
     constructor(e = {}) {
