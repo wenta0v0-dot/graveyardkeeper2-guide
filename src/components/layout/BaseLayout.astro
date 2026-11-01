@@ -243,14 +243,30 @@ const privacyLabel = consent?.privacyLabel ?? footerStrings.privacyPolicy ?? 'Pr
     {/* Google Search Console verification (optional) */}
     {gscVerification && <meta name="google-site-verification" content={gscVerification} />}
 
+    {/* AdSense site code — rendered STATICALLY, not consent-gated: AdSense's
+        own site-verification crawler reads raw HTML, so a consent-gated
+        dynamic injection (the old loader) is invisible to it and the site
+        review stalls at "add the code to your head". No ad SLOTS render
+        until the PUBLIC_ADSENSE_SLOT_* vars are set — this tag alone is
+        exactly what the review expects to see. GA below stays consent-gated.
+        (2026-10-31: first AdSense application for gk2wiki.com.) */}
+    {adsenseClient && (
+      <script
+        is:inline
+        async
+        src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
+        crossorigin="anonymous"
+      ></script>
+    )}
+
     {/*
-      Analytics / AdSense are injected DYNAMICALLY (consent-gated).
-      BaseLayout only defines the loader; CookieConsent.astro calls it after
-      the visitor accepts. See GDPR note in AGENTS.md. No tracking env vars
-      → this block renders nothing → zero JS.
+      Analytics are injected DYNAMICALLY (consent-gated). BaseLayout only
+      defines the loader; CookieConsent.astro calls it after the visitor
+      accepts. See GDPR note in AGENTS.md. No tracking env vars → this
+      block renders nothing → zero JS.
     */}
-    {(gaId || adsenseClient) && (
-      <script is:inline define:vars={{ gaId, adsenseClient }}>
+    {gaId && (
+      <script is:inline define:vars={{ gaId }}>
         window.__awLoadTrackers = () => {
           if (window.__awTrackersLoaded) return;
           window.__awTrackersLoaded = true;
@@ -265,15 +281,6 @@ const privacyLabel = consent?.privacyLabel ?? footerStrings.privacyPolicy ?? 'Pr
             }
             gtag('js', new Date());
             gtag('config', gaId);
-          }
-          if (adsenseClient) {
-            const s = document.createElement('script');
-            s.async = true;
-            s.crossOrigin = 'anonymous';
-            s.src =
-              'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' +
-              adsenseClient;
-            document.head.appendChild(s);
           }
         };
       </script>
