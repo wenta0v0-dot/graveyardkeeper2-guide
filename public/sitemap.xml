@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  /sitemap.xml — convenience alias for the real sitemap index.
+  Google, Bing and GSC's URL-prefix tools all probe the well-known
+  /sitemap.xml path even when robots.txt points elsewhere; before this file
+  existed that probe hit a 404 and GSC reported "Not found (404)" on the
+  domain. The canonical sitemap stays sitemap-index.xml (the Astro sitemap
+  integration's output, also the URL submitted in Search Console).
+-->
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>https://gk2wiki.com/sitemap-0.xml</loc>
+  </sitemap>
+</sitemapindex>
