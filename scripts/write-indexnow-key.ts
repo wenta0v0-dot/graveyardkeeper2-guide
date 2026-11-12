@@ -65,23 +65,3 @@ if (commitSha) {
   console.log('[IndexNow] Wrote dist/.well-known/anvilwiki-deploy.txt');
 }
 
-// TEMPORARY DIAGNOSTIC (2026-11-12): surface the ad-slot env var NAMES the
-// build actually received. Two weeks of "configured but dark" rounds were
-// spent guessing whether the dashboard holds a truncated/typo'd key; a file
-// listing matching names (names only — never values) ends the guessing.
-// Both the Adsterra keys and the AdSense client key are included.
-try {
-  const adEnvNames = Object.keys(process.env)
-    .filter((k) => /ADST|ADSTERRA|ADSENSE/i.test(k))
-    .sort();
-  const wellKnown = path.join(dist, '.well-known');
-  fs.mkdirSync(wellKnown, { recursive: true });
-  fs.writeFileSync(
-    path.join(wellKnown, 'ads-env.txt'),
-    (adEnvNames.length ? adEnvNames.join(String.fromCharCode(10)) : '(none)') + String.fromCharCode(10),
-    'utf8',
-  );
-  console.log(`[ads-diag] ${adEnvNames.length} ad env name(s) visible to the build`);
-} catch {
-  /* diagnostic only — never fail the build over it */
-}
