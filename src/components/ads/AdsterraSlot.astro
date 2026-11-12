@@ -47,13 +47,32 @@ interface Props {
    * fills any width. Same pattern as StickyBanner's `hidden md:block`.
    */
   hideOnMobile?: boolean;
+  /**
+   * Explicit env-var name override (e.g. `ADST_BANNER`). By default the key
+   * is derived from `name` (PUBLIC_ADSTERRA_SLOT_<NAME>), which works fine —
+   * but long derived names proved error-prone to type into dashboard input
+   * boxes that truncate visually (2026-11: a truncated CF variable name
+   * silently darkened both slots). A short explicit key sidesteps that.
+   */
+  envKey?: string;
 }
 
 import { currentSharedStrings } from '~/lib/shared-ui';
 
-const { name, width, height, label = true, hideOnMobile = false } = Astro.props;
-const envKey = `PUBLIC_ADSTERRA_SLOT_${name.replace(/-/g, '_').toUpperCase()}`;
-const show = !!import.meta.env[envKey];
+const { name, width, height, label = true, hideOnMobile = false, envKey: envKeyProp } = Astro.props;
+// Two accepted names per slot, either one turns it on:
+//   1. the derived long form  PUBLIC_ADSTERRA_SLOT_<NAME>  (template contract)
+//   2. an explicit short form passed via `envKey`          (e.g. ADST_BANNER)
+// The short alias exists because dashboard env inputs visually truncate long
+// names, which silently darkened both slots for a week (2026-11). Checking
+// both means neither naming style can break the other.
+const derivedKey = `PUBLIC_ADSTERRA_SLOT_${name.replace(/-/g, '_').toUpperCase()}`;
+const explicitKey = envKeyProp;
+// Read via process.env, NOT import.meta.env: Vite statically replaces
+// import.meta.env.FOO only for static keys / PUBLIC_-prefixed vars — a
+// DYNAMIC key (import.meta.env[envKey]) returns undefined at build time for
+// anything outside that whitelist.
+const show = !!(process.env[explicitKey ?? derivedKey] || process.env[derivedKey]);
 // Same env condition under which BaseLayout renders CookieConsent — when
 // either is set the banner (and its consent promise) is live on every page.
 const consentBannerActive = !!(

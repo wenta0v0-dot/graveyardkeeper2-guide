@@ -30,7 +30,7 @@
 import AdsterraSlot from './AdsterraSlot.astro';
 ---
 
-<AdsterraSlot name="incontent-728x90" width={728} height={90} hideOnMobile />
+<AdsterraSlot name="incontent-728x90" envKey="ADST_BANNER" width={728} height={90} hideOnMobile />
 <slot />
-<AdsterraSlot name="native-banner" width={700} height={240} />
+<AdsterraSlot name="native-banner" envKey="ADST_NATIVE" width={700} height={240} />
 <slot name="after" />
