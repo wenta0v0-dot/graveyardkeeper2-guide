@@ -10,6 +10,13 @@
 - 验收结果:sitemap 全部 68 URL 200、canonical/og 指 gk2wiki.com、404 行为正确、pagefind 搜索可用、ads.txt/robots/GSC 验证文件在线
 - 待收尾:~~GH Pages 关闭~~(**已完成** 2026-10-27,Unpublish site,旧地址 404)、GitHub Actions 变量 SITE_URL→https://gk2wiki.com、GSC 新资源+sitemap 提交、www.gk2wiki.com 域名绑定(可选)
 
+## Adsterra 广告接线完成(2026-11-13)
+
+- 单元已在 Adsterra 后台建好并过审(native-banner + incontent-728x90,代码已贴入 `public/ads/*.html`)
+- 🐛 修复:构建期缺 `PUBLIC_ADSTERRA_SLOT_*` 导致组件零渲染——本仓库走 Workers Builds(push 即构建),`PUBLIC_*` 必须在构建期存在;`.env` 已强制入库(gitignore 豁免,值是非机密开关,同 wrangler.jsonc 入库哲学),Vite 构建时自动读取
+- 顺带清理:根目录误建的杂散 `ads/` 目录已移除(从未被部署;真身在 `public/ads/`)
+- 注意:未来若 CF Dashboard 配置了 Build variables,会与本 `.env` 共存(同名时 dashboard 优先,行为一致)
+
 ## 0. 已上线(2026-10-16)
 
 - **线上地址**:https://wenta0v0-dot.github.io/graveyardkeeper2-guide/
