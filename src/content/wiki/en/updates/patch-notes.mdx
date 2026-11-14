@@ -4,13 +4,13 @@ description: 'Every Graveyard Keeper 2 update since launch in one dated log — 
 category: 'updates'
 image: '../../../../assets/covers/en-updates-patch-notes.png'
 date: 2026-10-17
-lastModified: 2026-10-31
-gameVersion: '1.011'
+lastModified: 2026-11-14
+gameVersion: '1.012'
 tags: ['patch notes', 'updates']
 summary: 'This page tracks every Graveyard Keeper 2 update since the September 22 launch, in one dated log: what each version fixed, what it rebalanced, which progression bugs died, and what the developers have publicly planned next. Re-checked after every patch — the same promise as our codes page.'
 faq:
   - question: 'What is the latest Graveyard Keeper 2 version?'
-    answer: 'As of our October 31 check: 1.011 (October 30) is the newest published PC changelog. This page is updated after every patch.'
+    answer: 'As of our November 14 check: 1.012 (November 13) is the newest published PC changelog. This page is updated after every patch.'
   - question: 'How do I check which version I am on?'
     answer: 'The version shows in the game''s main menu. Cross-check it against the official Steam announcements feed, which publishes a changelog post for most updates.'
   - question: 'Do updates wipe saves?'
@@ -21,10 +21,10 @@ faq:
 
 import Callout from '~/components/mdx/Callout.astro';
 
-Graveyard Keeper 2 is being patched fast — eight updates in the first six weeks after the September 22 launch — and the patch notes matter more than usual, because several of them changed the economy and killed progression-blocking bugs. This page condenses every update into a dated log, sourced from the official announcement feed. Last checked **October 31, 2026**; this page is re-verified after every patch, the same promise the [codes page](/codes/all-codes/) makes.
+Graveyard Keeper 2 is being patched fast — nine updates in the first eight weeks after the September 22 launch — and the patch notes matter more than usual, because several of them changed the economy and killed progression-blocking bugs. This page condenses every update into a dated log, sourced from the official announcement feed. Last checked **November 14, 2026**; this page is re-verified after every patch, the same promise the [codes page](/codes/all-codes/) makes.
 
 <Callout type="info" title="The short version">
-  Version trail: launch hotfix (Sep 22) → **1.005** (Sep 24) → **1.006** (Sep 25) → **1.007** (Sep 28) → **1.008** (Oct 2) → **1.009** (Oct 6) → **1.010** (Oct 13) → **1.011** (Oct 30). If you stalled on a progression bug before 1.008, try again — the main-quest softlock and the worst crashers were fixed. The delivery economy got buffed in 1.008, order slots grew to 5 in 1.010, and **1.011 is the biggest one yet: moveable work stations, zombie autocrafting and an in-game mod menu**.
+  Version trail: launch hotfix (Sep 22) → **1.005** (Sep 24) → **1.006** (Sep 25) → **1.007** (Sep 28) → **1.008** (Oct 2) → **1.009** (Oct 6) → **1.010** (Oct 13) → **1.011** (Oct 30) → **1.012** (Nov 13). If you stalled on a progression bug before 1.008, try again — the main-quest softlock and the worst crashers were fixed. The delivery economy got buffed in 1.008, order slots grew to 5 in 1.010, 1.011 brought moveable work stations and zombie autocrafting, and **1.012 reworks the PR Machine into a set-and-forget automation**.
 </Callout>
 
 ## Which versions have shipped?
@@ -39,6 +39,7 @@ Graveyard Keeper 2 is being patched fast — eight updates in the first six week
 | Oct 6, 2026 | Changelog 1.009 | Crash, HUD-lock and zombie-station fixes |
 | Oct 13, 2026 | Update 1.010 | Softlock sweep + order slots rise to 5 |
 | Oct 30, 2026 | Update 1.011 | Moveable work stations, zombie autocrafting, in-game mod menu |
+| Nov 13, 2026 | Update 1.012 | PR Machine rework (full automation), campfire rest, richer map |
 
 ## What each update actually changed
 
@@ -102,20 +103,31 @@ This is the patch that changed how money works:
 - Quality-of-life: ultrawide support, queue total-output display, bumpers move items 10 at a time, conveyor belts place facing up.
 - Notable fixes: the **Resurrection Room gate locking after 1.009.1** (the Envy-day resurrection room), **Albert's zombie breaking the zombie limit and its debuff**, Key Collector IV stuck at 23/24, slow ladder climbing, and a long-playtime crash.
 
+### Update 1.012 — the PR Machine rework and rest options
+
+- **PR Machine fully automated** — load Hypno-devices and Newspapers in any quantity and the machine runs campaigns for as long as the queue lasts; no more back-and-forth reloading. It can also now be **upgraded on any day using Graveyard quality points** (items still load on their exact day).
+- **Campfire bench rest** — sit on the bench by the campfire next to the Keeper's house to restore energy and skip time. It does **not** save progress or clear insanity / the 'Lack of Sleep' debuff.
+- **Richer map** — the map now shows morgue body counts, current and maximum zombies, and available order numbers.
+- **Mercenaries accept wine or coin** and can join the final battle even if unpaid.
+- **Memory usage optimization** and the PR Manager inspiration now counts each day the machine ran.
+- Zombie-line fixes that matter to the [automation economy](/guides/zombie-workers-guide/): zombies no longer stop when the first queued craft lacks resources, auto-crafting no longer sticks when the queue is modified, supply carriers collect again, and stove cooking resumes.
+- Trader stock: **the Apothecary now sells beeswax** and the tavern sells more exhumation certificates per level.
+- Battle and story fixes: final sewer crash, final-fight pathfinding (zombies through the stone fence), unclaimable rewards at *The House at the Crossroads*, monks not granting the Monk's sword, and the *Personal Zombie Zone* placement bug. Lost items can be recovered from the **Crown Nest** near your home.
+
 ## What the developers have planned
 
-The official roadmap post (undated items) listed: **zombie helpers**, **additional order slots**, **trader upgrades**, **Panic Reduction**, **rechargeable Hypno-devices**, and **zombie cremation**. Score so far: order slots shipped in 1.010, zombie cremation and zombie autocrafting in 1.011. Still outstanding: trader upgrades, Panic Reduction, Hypno-devices, zombie helpers beyond assistants. No multiplayer or co-op announcement.
+The official roadmap post (undated items) listed: **zombie helpers**, **additional order slots**, **trader upgrades**, **Panic Reduction**, **rechargeable Hypno-devices**, and **zombie cremation**. Score so far: order slots shipped in 1.010, zombie cremation and zombie autocrafting in 1.011, and 1.012 automated the PR Machine (Hypno-devices are consumed from a queue now — though not the "rechargeable" kind). Still outstanding: trader upgrades, Panic Reduction, rechargeable Hypno-devices, zombie helpers beyond assistants. No multiplayer or co-op announcement.
 
 ## Verification log
 
 | Date checked | Version state | Source |
 |---|---|---|
+| November 14, 2026 | 1.012 published Nov 13 (PC) — full changelog transcribed | Official changelog post via the Steam news feed |
 | October 31, 2026 | 1.011 published Oct 30 (PC) — full changelog transcribed | Official changelog post via the Steam news feed |
-| October 27, 2026 | 1.010 still the newest published changelog — re-checked, no new announcements | Steam news feed |
 | Next check | After the next published changelog | This page re-verifies after every patch |
 
 ## What to read next
 
 - **[Money guide](/guides/money-guide/)** — what 1.008's delivery buffs mean for your income order.
 - **[Troubleshooting](/guides/troubleshooting/)** — the walls that survived every patch so far.
-- **[Cheats & console commands — the truth](/codes/all-codes/)** — still no code box as of 1.011, re-checked alongside this page.
+- **[Cheats & console commands — the truth](/codes/all-codes/)** — still no code box as of 1.012, re-checked alongside this page.
